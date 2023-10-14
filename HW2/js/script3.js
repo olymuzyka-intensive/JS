@@ -1,6 +1,6 @@
-// let st = prompt('введите 6 цифр', '');
+let st = prompt('введите 6 цифр', '');
 
-// if (Number(st[0])+Number(st[1])+Number(st[2]) == Number(st[3])+Number(st[4])+Number(st[5])) alert('да'); else alert('нет');
+if (Number(st[0])+Number(st[1])+Number(st[2]) == Number(st[3])+Number(st[4])+Number(st[5])) alert('да'); else alert('нет');
 
 
 
