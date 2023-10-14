@@ -1,3 +1,3 @@
-let a=prompt('введите цифру', '');
+let a1=prompt('введите цифру', '');
 
-if (a > 0) {alert ('Верно')} else {alert('Неверно');}
+if (a1 > 0) {alert ('Верно')} else {alert('Неверно');}
