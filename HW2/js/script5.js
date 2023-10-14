@@ -6,4 +6,4 @@ console.log('', a - b);
 console.log('', a * b);
 console.log('', a / b);
 
-if (summ > 1) console.log('квадрат суммы', summ ** 2)//
+if (summ > 1) console.log('квадрат суммы', summ ** 2);
