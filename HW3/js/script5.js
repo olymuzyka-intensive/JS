@@ -10,5 +10,4 @@ while (j < 56) {
     j++;
     if (j % 2 == 0)
     console.log(j);
-    
 }
