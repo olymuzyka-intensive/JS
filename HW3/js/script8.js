@@ -4,6 +4,8 @@ let i = 0,
         while ((ch = +prompt("Введите число")) !== "0" && ch != '') {
             ++i;
             s += +ch; 
+                    // if (typeof ch === "Number") 
+                    // if (!Number.isFinite(ch)) 
             if (isNaN(ch)) {
                 alert("ошибка ввода")
               } else {
@@ -11,8 +13,7 @@ let i = 0,
                 {alert("Вы ввели отрицательное число")}
               } 
         }
-        // if (typeof ch === "Number") 
-        // if (!Number.isFinite(ch)) 
+        
         
        
           
