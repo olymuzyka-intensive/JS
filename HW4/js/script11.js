@@ -1,33 +1,33 @@
 
-let h = prompt('введите высоту 1 треугольника','');
-let ln = "&nbsp"
-for (let i = 0; i < h; i++) {
-  for (let k = h; k > i - 1; k--) {
-    document.write(ln, ln)
-  }
-  for (let j = 0; j < i + 1; j++) {
-    document.write("^", ln, ln)
-  }
-  document.write("<br>")
-}
+// let h = prompt('введите высоту 1 треугольника','');
+// let ln = "&nbsp"
+// for (let i = 0; i < h; i++) {
+//   for (let k = h; k > i - 1; k--) {
+//     document.write(ln, ln)
+//   }
+//   for (let j = 0; j < i + 1; j++) {
+//     document.write("^", ln, ln)
+//   }
+//   document.write("<br>")
+// }
 
 
 
 //эксперименты
-let res = '';
-let n = prompt('введите высоту 2 треугольника (результат в консоли)','');
+// let res = '';
+// let n = prompt('введите высоту 2 треугольника (результат в консоли)','');
 
 
-for (let i = 0; i < n; i++) {
-    for (let j = n; j > i - 1; j--) {
-        res +='';
-    }
-    for (let k = 0; k < i + 1; k++) {
-        res += '^'+ '';
-    }
-    res += '\n';
-}
-console.log(res);
+// for (let i = 0; i < n; i++) {
+//     for (let j = n; j > i - 1; j--) {
+//         res +='';
+//     }
+//     for (let k = 0; k < i + 1; k++) {
+//         res += '^'+ '';
+//     }
+//     res += '\n';
+// }
+// console.log(res);
 
 
 // for (let i = 1; i <= n; i++) {

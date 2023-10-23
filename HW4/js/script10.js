@@ -1,18 +1,18 @@
-let arr12 = [1,8,0,13,76,8,7,0,22,0,2,3,2];
+// let arr12 = [1,8,0,13,76,8,7,0,22,0,2,3,2];
 
-let indexStart = arr12.indexOf(0)+1;
-let indexEnd = arr12.lastIndexOf(0);
+// let indexStart = arr12.indexOf(0)+1;
+// let indexEnd = arr12.lastIndexOf(0);
 
-let summ = 0;
+// let summ = 0;
 
-// console.log(indexStart);
-// console.log(indexEnd);
+// // console.log(indexStart);
+// // console.log(indexEnd);
 
-for (let i = indexStart; i < indexEnd; i++) {
-    summ += arr12[i];
-}
+// for (let i = indexStart; i < indexEnd; i++) {
+//     summ += arr12[i];
+// }
 
-console.log(summ);
+// console.log(summ);
 
 
 
