@@ -10,7 +10,7 @@
 //     otvet = (a - b) / c;
 //     alert(otvet);
 // }
-// calculation();
+// calculation(); 
 
 //решение
 function calc(a, b, c){
@@ -38,17 +38,19 @@ function otvet(calc2, calc3){
 // otvet();
 
 // 3. Напишите функции min и max, которые возвращают меньшее и большее из чисел a и b
+// function poiskMin() {
+//     if (a > b) {console.log('min',b)
+//     } else console.log('min',a);
+// }
+// function poiskMax() {
+//     if (a < b) {console.log('max',b)
+//     } else console.log('max',a);
+// }
+    
 // let a = +prompt('введите число', '');
 // let b = +prompt('введите число', '')
 // console.log('введены числа',a,b);
-function poiskMin() {
-    if (a > b) {console.log('min',b)
-    } else console.log('min',a);
-}
-function poiskMax() {
-    if (a < b) {console.log('max',b)
-    } else console.log('max',a);
-}
+
 // poiskMin();
 // poiskMax();
 
@@ -66,15 +68,46 @@ function poiskMax() {
 // }
 // createArray();
 
-function createArray() {
-    let n = prompt('введите количество элементов');
-    let array = [];
-        for (let i = 1; i <= n; i++) {
-        array.push(i);
-        return (array);
-    }
-    function arr(){
-        console.log(arr);
-    }
+// // попытка
+// function getArray(array) {
+//     let n = prompt('введите количество элементов');
+//     let array = [];
+//     for (let i = 1; i <= n; i++) {
+//             array.push(i);
+//             }
+//         return array; 
+//     }   
+//     // getArray();
+//     // function result() {
+//     //     let res = [];
+//     //     res = getArray;
+//     //     }
+//     // result();
+     
+
+// function createArray(arr, create) {
+    
+//     for (let i of arr) {
+//         array.push(create(i))
+//     }
+//     return array;
+// }
+// let array = [];
+
+// let arr = prompt('введите количество элементов');
+// createArray();
+
+
+//  5, Сделайте функцию isEven() (even - это четный), которая параметром принимает целое число и проверяет: четное оно или нет. Если четное - пусть функция возвращает true, если нечетное — false.
+
+function isEven(param) {
+    if (a % 1 === 0) {
+        alert('проверка на целое число пройдена')
+    } else {alert('число не целое'); }
+    if (a % 2 == 0 ) {
+        param = true
+    } else {param = false}
+    console.log(param)
 }
-createArray();
+let a = prompt('vvedite chislo');
+isEven()
