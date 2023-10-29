@@ -38,14 +38,14 @@ function otvet(calc2, calc3){
 // otvet();
 
 // 3. Напишите функции min и max, которые возвращают меньшее и большее из чисел a и b
-// function poiskMin() {
-//     if (a > b) {console.log('min',b)
-//     } else console.log('min',a);
-// }
-// function poiskMax() {
-//     if (a < b) {console.log('max',b)
-//     } else console.log('max',a);
-// }
+function poiskMin() {
+    if (a > b) {console.log('min',b)
+    } else console.log('min',a);
+}
+function poiskMax() {
+    if (a < b) {console.log('max',b)
+    } else console.log('max',a);
+}
     
 // let a = +prompt('введите число', '');
 // let b = +prompt('введите число', '')
@@ -71,25 +71,66 @@ function otvet(calc2, calc3){
 // }    
 
 // createArray();
-// showArray()
+// showArray();
 
 
 //  5. Сделайте функцию isEven() (even - это четный), которая параметром принимает целое число и проверяет: четное оно или нет. Если четное - пусть функция возвращает true, если нечетное — false.
 
-// function isEven(param) {
-//     let a = prompt('vvedite chislo');
-//     if (a % 1 === 0) {
+// let a = prompt('vvedite chislo');
+//     if (a % 1 == 0) {
 //         alert('проверка на целое число пройдена')
-//     } else {alert('число не целое'); }
+//     } else {
+//         alert('число не целое'); 
+// //     }
+// function isEven(param) {
+    
 //     if (a % 2 == 0 ) {
 //         param = true
-//     } else {param = false}
+//     } else {
+//         param = false
+//     }
 //     console.log(param)
 // }
 
 // isEven();
 
 
-// 6. Напишите ф-цию, в которую передается массив с целыми числами. Верните новый массив, где останутся лежать только четные из этих чисел.Для этого используйте вспомогательную функцию isEven из предыдущей задачи.
 
+// 6. Напишите ф-цию, в которую передается массив с целыми числами. Верните новый массив, где останутся лежать только четные из этих чисел. Для этого используйте вспомогательную функцию isEven из предыдущей задачи.
+
+// let n = prompt('введите количество элементов');
+// let array = [];
+// newArray = [];
+function find() {
+for (let i = 1; i <= n; i++) {
+    array.push(i);
+}
+for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 == 0) {  // не придумала как верно реализовать isEven не работает как нужно
+        newArray.push(array[i]);
+        
+    }
+}
+console.log(newArray);
+}
+// find();
+
+
+
+// 7. Напишите ф-цию, которая рисует следующую пирамидку (исп. вложенные циклы): 
+// Кол-во рядов должно вводиться параметром. Если пользователь ввел доп. параметр, непредусмотренный ф-цией по умолчанию - один любой символ,кроме пробела, то пирамида должна быть нарисована этим символом
+
+let k = prompt('введите кол-во рядов (не больше 9)');
+let str = '';
+function piramida(k,s){
+    for (let i = 0; i <= k; i++) {
+        str += '\n';
+        for (let j = 0; j < i; j++ ) {
+            str += i;
+        }
+    }
+    console.log(str);
+    }
+piramida(k);
+// эксперимент с другим символом не удался :() 
 
