@@ -57,57 +57,39 @@ function otvet(calc2, calc3){
 
 // 4. Напишите две функции: первая ф-ция должна возвращать массив с числовыми значениями, диапазон которых должен вводиться пользователем с клавиатуры; вторая – выводить полученный массив
 
-// исследование
+// let n = prompt('введите количество элементов');
+// let array = [];
 // function createArray() {
-//     let n = prompt('введите количество элементов');
-//     let array = [];
+    
 //     for (let i = 1; i <= n; i++) {
 //         array.push(i);
 //     }
+//     return array; 
+// }
+// function showArray() {
 //     console.log(array)
-// }
+// }    
+
 // createArray();
+// showArray()
 
-// // попытка
-// function getArray(array) {
-//     let n = prompt('введите количество элементов');
-//     let array = [];
-//     for (let i = 1; i <= n; i++) {
-//             array.push(i);
-//             }
-//         return array; 
-//     }   
-//     // getArray();
-//     // function result() {
-//     //     let res = [];
-//     //     res = getArray;
-//     //     }
-//     // result();
-     
 
-// function createArray(arr, create) {
-    
-//     for (let i of arr) {
-//         array.push(create(i))
-//     }
-//     return array;
+//  5. Сделайте функцию isEven() (even - это четный), которая параметром принимает целое число и проверяет: четное оно или нет. Если четное - пусть функция возвращает true, если нечетное — false.
+
+// function isEven(param) {
+//     let a = prompt('vvedite chislo');
+//     if (a % 1 === 0) {
+//         alert('проверка на целое число пройдена')
+//     } else {alert('число не целое'); }
+//     if (a % 2 == 0 ) {
+//         param = true
+//     } else {param = false}
+//     console.log(param)
 // }
-// let array = [];
 
-// let arr = prompt('введите количество элементов');
-// createArray();
+// isEven();
 
 
-//  5, Сделайте функцию isEven() (even - это четный), которая параметром принимает целое число и проверяет: четное оно или нет. Если четное - пусть функция возвращает true, если нечетное — false.
+// 6. Напишите ф-цию, в которую передается массив с целыми числами. Верните новый массив, где останутся лежать только четные из этих чисел.Для этого используйте вспомогательную функцию isEven из предыдущей задачи.
 
-function isEven(param) {
-    if (a % 1 === 0) {
-        alert('проверка на целое число пройдена')
-    } else {alert('число не целое'); }
-    if (a % 2 == 0 ) {
-        param = true
-    } else {param = false}
-    console.log(param)
-}
-let a = prompt('vvedite chislo');
-isEven()
+
