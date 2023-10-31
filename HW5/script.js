@@ -192,7 +192,7 @@ console.log(newArray);
 
 
 
-// Напишите ф-цию, которая возвращает массив заполненный числами Фибоначи от 0 до 1000.
+// 9. Напишите ф-цию, которая возвращает массив заполненный числами Фибоначи от 0 до 1000.
 
 function fibonacci(n) {
     let fib = [0, 1];
@@ -205,6 +205,46 @@ function fibonacci(n) {
     
     console.log(fib);
 }
-fibonacci();
+// // fibonacci();
 
 
+// 10. Дано число. Сложите его цифры. Если сумма получилась более 9-ти, опять сложите его цифры. И так, пока сумма не станет однозначным числом (9 и менее). Исп. Рекурсию.
+
+
+
+// let num = prompt('vvedite chislo', '');
+
+// function summ (arr) {
+// let sum = 0;
+// for(var i = 0; i < arr.length; i++){
+// sum += +arr[i];
+// }
+// if (sum > 9){
+// summ(sum+'');
+// }else{
+// console.log(num)
+// console.log(sum);
+// }
+// }
+// summ(num);
+
+
+
+// function getSum(num) {
+//     var sum = 0;
+//     var arr = String(num).split('');// преобразуем в массив
+//     for (var i = 0; i < arr.length; i++) {
+//         sum += parseInt(arr[i]); //анализируем строку и возвращакм целое число
+//     }
+
+//     if (sum > 9) {
+//         return getSum(sum);
+//     } else {
+//         return sum;
+//     }
+// }
+
+// let num = prompt('vvedite chislo','');
+// console.log(num)
+// let final_num = getSum(num);
+// console.log('result = ' + final_num);
