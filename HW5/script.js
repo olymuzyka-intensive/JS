@@ -156,20 +156,55 @@ console.log(newArray);
 
 // 8. Напишите ф-цию, которая рисует равнобедренный треугольник из звездочек: Кол-во рядов должно вводиться с клавиатуры. Доп., напишите такую же фцию, но которая выведет перевернутый треугольник
 
-let h = prompt('введите высоту треугольника','');
-function triangle (h) {
+// let h = prompt('введите высоту треугольника','');
+// function triangle (h) {
 
-for (let i = 0; i < h; i++) {
-    let ln = '';
-  for (let k = 0; k < h - 1; k++) {
-    ln += ' ';
-  }
-  for (let j = 0; j < i + i - 1; j++) {
-    ln += '*';
-  }
-  console.log(ln);
-  document.write(ln);
-}
+// for (let i = 0; i < h; i++) {
+//     let ln = '';
+//   for (let k = 0; k < h - 1; k++) {
+//     ln += ' ';
+//   }
+//   for (let j = 0; j < i + i - 1; j++) {
+//     ln += '*';
+//   }
+//   console.log(ln);
+//   document.write(ln + '\n');
+// }
+// }
+// triangle(h);
 
+
+// let n = prompt('введите высоту треугольника','');
+// function triangle(n) {
+//     let result = '';
+//     for(let i = 1 ; i <= n ; i++) {
+//         for(j = n ; j > i ; j--) {
+//           result += ' ';
+//         }
+//         for(j = 1 ; j <= i ; j++) {
+//           result += '*' + ' ';
+//         }
+//         result += "\n";
+//     }
+//     return result;
+// }
+// console.log(triangle(n));
+
+
+
+// Напишите ф-цию, которая возвращает массив заполненный числами Фибоначи от 0 до 1000.
+
+function fibonacci(n) {
+    let fib = [0, 1];
+    let i;
+    
+    for (i = 2; i < 17; i++){
+        
+        fib[i] = fib[i-1] + fib[i-2]; 
+    }
+    
+    console.log(fib);
 }
-triangle(h);
+fibonacci();
+
+
