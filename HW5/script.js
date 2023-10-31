@@ -211,7 +211,7 @@ function fibonacci(n) {
 // 10. Дано число. Сложите его цифры. Если сумма получилась более 9-ти, опять сложите его цифры. И так, пока сумма не станет однозначным числом (9 и менее). Исп. Рекурсию.
 
 
-
+// 1 sposob
 // let num = prompt('vvedite chislo', '');
 
 // function summ (arr) {
@@ -229,7 +229,7 @@ function fibonacci(n) {
 // summ(num);
 
 
-
+// 2 sposob
 // function getSum(num) {
 //     var sum = 0;
 //     var arr = String(num).split('');// преобразуем в массив
