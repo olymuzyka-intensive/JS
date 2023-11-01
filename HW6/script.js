@@ -6,12 +6,15 @@ console.log(result);
 
 
 // 2. В переменной date лежит дата в формате 2025-12-31. Преобразуйте эту дату в формат 31/12/2025. 
-let date = '2025-12-31';
-let arr = date.split('-');
-let newDate = arr[2] + '/' + arr[1] + '/' + arr[0];
+function formDate() {
+    let date = '2025-12-31';
+    let arr = date.split('-');
+    let newDate = arr[2] + '/' + arr[1] + '/' + arr[0];
 
-console.log('исходная дата', date);
-console.log('дата в другом формате', newDate);
+    console.log('исходная дата', date);
+    console.log('дата в другом формате', newDate);
+}
+formDate()
 
 // 3. Дана строка «Я учу javascript!». Вырежете из нее слово «учу» и слово «javascript» тремя разными способами (через substr, substring, slice).
 
@@ -59,3 +62,22 @@ function absResult(a,b) {
 }
 absResult(3,5);
 absResult(6,1);
+
+
+// 6. Выведите на экран текущую дату-время в формате 12:59:59 31.12.2014. Для решения этой задачи напишите функцию, которая будет добавлять 0 перед днями и месяцами, которые состоят из одной цифры (из 1.9.2014 сделает 01.09.2014)
+
+
+function formatDate() {
+    let today = new Date();
+    console.log(today);
+
+    function addNum(n) {
+        return (n < 10) ? '0' + n : n;
+    }
+
+    let strDate = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds() + ' ' + today.getDate()+ '.' + (today.getMonth()+1) + '.' + today.getFullYear();
+
+    
+    console.log(strDate);
+}
+formatDate();
