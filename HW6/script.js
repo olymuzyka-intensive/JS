@@ -15,8 +15,6 @@ console.log('дата в другом формате', newDate);
 
 // 3. Дана строка «Я учу javascript!». Вырежете из нее слово «учу» и слово «javascript» тремя разными способами (через substr, substring, slice).
 
-
-
 let str1 = 'Я учу javascript!';
 let result1 = str1.substring(0,1)+str1.substring(16,17);
 
@@ -28,3 +26,27 @@ let result3 = str3.slice(0,1)+str3.slice(16,17);
 console.log(result1);
 console.log(result2);
 console.log(result3);
+
+// 4. Дан массив с элементами 4, 2, 5, 19, 13, 0, 10. Найдите квадратный корень из суммы кубов его элементов. Для решения воспользуйтесь циклом for.
+
+function mathSumCub(){
+    let array = [4, 2, 5, 19, 13, 0, 10];
+    let cub = new Array;
+    let sum = 0;
+    let result = 0;
+    
+    for(i in array){
+        cub[i] = Math.pow(array[i], 3);
+    }
+    console.log('массив кубов',cub);
+    
+    for (i = 0; i < cub.length;i++) {
+        sum += cub[i];
+    }
+    console.log('сумма кубов',sum);
+
+    result = Math.sqrt(sum);
+    console.log('результат, корень квадратный из полученной суммы', result);
+    console.log('округлим результат', result.toFixed(3));
+}
+mathSumCub();
