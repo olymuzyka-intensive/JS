@@ -110,4 +110,9 @@ let opt = {
 }
     console.log(today1.toLocaleString('ru', opt));
 
-    // 7.
+    // 7.  Дана строка 'aa aba abba abbba abca abea'. Напишите регулярку, которая найдет строки aba, abba, abbba по шаблону: буква 'a', буква 'b' любое количество раз, буква 'a'.
+
+    let strReg = 'aa aba abba abbba abca abea';
+    regesp = (/ab+a/g);
+
+    console.log(strReg.match(regesp));
