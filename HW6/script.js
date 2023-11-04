@@ -2,19 +2,31 @@
  let str = 'aaa@bbb@ccc';
  let regular =/@/g;
  let result = str.replace(regular,'!')
-console.log(result);
-
+console.log(result); // 1 вариант решения
+console.log(str.replace(/@/g, '!')) // 2 вариант решения
 
 // 2. В переменной date лежит дата в формате 2025-12-31. Преобразуйте эту дату в формат 31/12/2025. 
 function formDate() {
-    let date = '2025-12-31';
-    let arr = date.split('-');
-    let newDate = arr[2] + '/' + arr[1] + '/' + arr[0];
-
+    let date = new Date('2025-12-31');
     console.log('исходная дата', date);
-    console.log('дата в другом формате', newDate);
+
+    newDate = date.toLocaleString('ru');
+    console.log('исходная дата', newDate);
+    formatesDate = newDate.replace(/\./g,'/')
+    console.log('дата в другом формате', formatesDate);
+    console.log(formatesDate.split(', ')[0]);
 }
 formDate()
+// 2 способ с использованием массива, просто оставила
+// function formDate() {
+//     let date = '2025-12-31';
+//     let arr = date.split('-');
+//     let newDate = arr[2] + '/' + arr[1] + '/' + arr[0];
+
+//     console.log('исходная дата', date);
+//     console.log('дата в другом формате', newDate);
+// }
+// formDate()
 
 // 3. Дана строка «Я учу javascript!». Вырежете из нее слово «учу» и слово «javascript» тремя разными способами (через substr, substring, slice).
 
@@ -66,18 +78,36 @@ absResult(6,1);
 
 // 6. Выведите на экран текущую дату-время в формате 12:59:59 31.12.2014. Для решения этой задачи напишите функцию, которая будет добавлять 0 перед днями и месяцами, которые состоят из одной цифры (из 1.9.2014 сделает 01.09.2014)
 
+function addNum(value) {
+        if (value < 9) return '0'+ value;
+        return value;
+    }
 
 function formatDate() {
     let today = new Date();
     console.log(today);
 
-    function addNum(n) {
-        return (n < 10) ? '0' + n : n;
-    }
-
-    let strDate = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds() + ' ' + today.getDate()+ '.' + (today.getMonth()+1) + '.' + today.getFullYear();
+    let strDate = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds() + ' ' + addNum(today.getDate())+ '.' + addNum(today.getMonth()+1) + '.' + today.getFullYear();
 
     
     console.log(strDate);
 }
+
+
 formatDate();
+
+
+// просто пробовала применить из видеоурока вариант, но перобразование как первом решении все равно оказалось нужным, оставила как эксперимент
+let today1 = new Date();
+
+let opt = {
+    hour: 'numeric',
+    minute: 'numeric',
+    seconds: 'numeric',
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric',
+}
+    console.log(today1.toLocaleString('ru', opt));
+
+    // 7.
