@@ -153,10 +153,14 @@ let opt = {
 // Функция должна возвращать true или false. Используйте регулярные  выражения.
 
 function checkEmail(mail) {
-    regExp3 = (^\D[\w{2,}].+(@{1})(\w{2,11})\.([a-z]{2,11})$);
+    regExp3 = (/^(\D)[\w{2,}].+@(\w{2,11})\.([a-z]{2,11})$/gim);
+    return regExp3.test(mail);
 }
 
-checkEmail(xvvd12@mail.by)
+console.log(checkEmail('xvvd12@mail.by'));
+console.log(checkEmail('2xvvd12@mail.by'));
+console.log(checkEmail('xv_v.d12@mail.by'));
+
 
 
 // [a-z0-9](\w+[\.\-_]?)+@{1}{2,11}[\.\-]?)\.[a-z]{2,11}
