@@ -176,7 +176,7 @@ function seachUrl(url){
     console.log('параметры', param);
     let hesh = (url.match(/(\#[\w\-]+)?/gim)); //+
     let str2 = hesh;
-    hesh = str.join('');
+    hesh = str2.join('');
     console.log('хеш', hesh);
 }
 seachUrl('https://tech.onliner.by/2018/04/26/smart-do-200/? utm_source=main_tile utm_medium=smartdo200#zag3');
