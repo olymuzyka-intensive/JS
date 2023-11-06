@@ -161,4 +161,43 @@ console.log(checkEmail('xvvd12@mail.by'));
 console.log(checkEmail('2xvvd12@mail.by'));
 console.log(checkEmail('xv_v.d12@mail.by'));
 console.log(checkEmail('xv_v.d12mail.by'));
-console.log(checkEmail('xv_v.@d12@mail.by')); //
+console.log(checkEmail('xv_v.d@12@mail.by')); // добилась наконец
+
+
+// 10. Напишите ф-цию, которая из полного адреса с параметрами и без, например: https://tech.onliner.by/2018/04/26/smart-do-200/? utm_source=main_tile utm_medium=smartdo200#zag3 , получит адрес доменного имени (https://tech.onliner.by), остальную часть адреса без параметров (/2018/04/26/smart-do-200/), параметры (utm_source=main_tile&utm_medium=smartdo200) и хеш (#zag3). В адресе может и не быть каких-либо составляющих. Ф-ция должна возвращать массив. //
+function seachUrl(url){
+    let domName = (url.match(/(https?:\/\/[\w\.]+)/gim)); //+
+    console.log('адрес доменного имени', domName);
+    let pchUrl =(url.match(/(\/[\w\/=.-]+)/gim));
+    console.log('часть адреса без параметров и хеша',pchUrl);
+    let param = (url.match(/(\?[\w\s?\-?\=?\%\[\][\]]+)?/gim)); //+
+    let str = param;
+    param = str.join(''); 
+    console.log('параметры', param);
+    let hesh = (url.match(/(\#[\w\-]+)?/gim)); //+
+    let str2 = hesh;
+    hesh = str.join('');
+    console.log('хеш', hesh);
+}
+seachUrl('https://tech.onliner.by/2018/04/26/smart-do-200/? utm_source=main_tile utm_medium=smartdo200#zag3');
+seachUrl('https://www.21vek.by/services/insurance.html#addservices__208');
+seachUrl('https://7745.by/catalog/televizory-s-diagonalyu-50-55-dyuymov?feature[brand][]=yandeks&feature[brand][]=philips');
+
+
+// function seachUrl(url){
+//     let domName = String(url.match(/(https?:\/\/[\w\.]+)/gim)); //+
+//     console.log('адрес доменного имени', domName);
+//     let pchUrl =String(url.match(/(\/[\w\/=.-]+)/gim));
+//     console.log('часть адреса без параметров и хеша',pchUrl);
+//     let param = String(url.match(/(\?[\w\s?\-?\=?\%\[\][\]]+)?/gim)); //+
+//     console.log('параметры', param);
+//     let hesh = String(url.match(/(\#[\w\-]+)?/gim)); //+
+//     console.log('хеш', hesh);
+// }
+// seachUrl('https://tech.onliner.by/2018/04/26/smart-do-200/? utm_source=main_tile utm_medium=smartdo200#zag3');
+// seachUrl('https://www.21vek.by/services/insurance.html#addservices__208');
+// seachUrl('https://7745.by/catalog/televizory-s-diagonalyu-50-55-dyuymov?feature[brand][]=yandeks&feature[brand][]=philips');
+
+// (https?:\/\/[a-z0-9\.]+)(\/[a-z0-9\/=.-]+)(\?[a-z0-9\s?\%\-?\_?\=?\\%\[\]]+)?(\#[a-z0-9-_]+)?
+// /(https?:\/\/[\w\.]+)(\/[\w\/=.-]+)(\?[\w\s?\-?\=?\%\[\][\]]+)?(\#[\w\-]+)?/gim
+ //работают, но проблема возникает с &!!
