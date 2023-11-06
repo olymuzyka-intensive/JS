@@ -152,21 +152,13 @@ let opt = {
 // - после последней точки и после @, домен верхнего уровня (ru, by, com и т.п.) не может быть длиной менее 2 и более 11 символов.
 // Функция должна возвращать true или false. Используйте регулярные  выражения.
 
-function checkEmail(mail) {
-    regExp3 = (/^(\D)[\w{2,}].+@(\w{2,11})\.([a-z]{2,11})$/gim);
-    return regExp3.test(mail);
+function checkEmail(email) {
+    regExp3 = (/^(\D)(\w[^@]{2,})+@(\w{2,11})\.([a-z]{2,11})$/gim);
+    return regExp3.test(email);
 }
 
 console.log(checkEmail('xvvd12@mail.by'));
 console.log(checkEmail('2xvvd12@mail.by'));
 console.log(checkEmail('xv_v.d12@mail.by'));
-
-
-
-// [a-z0-9](\w+[\.\-_]?)+@{1}{2,11}[\.\-]?)\.[a-z]{2,11}
-// olymuzyka@yandex.Ru
-// olymuzyka@ya@bdex.ru
-// oly.muzyka@yabdex.ru
-// ol2ymuzyka@yabdex.rU
-// o1lymuzyka@yabdex.ru
-// 2oly_muzyka@yabdex.ru
+console.log(checkEmail('xv_v.d12mail.by'));
+console.log(checkEmail('xv_v.@d12@mail.by')); //
