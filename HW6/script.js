@@ -7,17 +7,27 @@ console.log(str.replace(/@/g, '!')) // 2 вариант решения
 
 // 2. В переменной date лежит дата в формате 2025-12-31. Преобразуйте эту дату в формат 31/12/2025. 
 function formDate() {
-    let date = new Date('2025-12-31');
+    let date = '2025-12-31';
     console.log('исходная дата', date);
 
-    newDate = date.toLocaleString('ru');
-    console.log('исходная дата', newDate);
-    formatesDate = newDate.replace(/\./g,'/')
-    console.log('дата в другом формате', formatesDate);
-    console.log(formatesDate.split(', ')[0]);
+    console.log(date.replace(/(2025)(-)(12)(-)(31)/, '$5/$3/$1'));
 }
 formDate()
-// 2 способ с использованием массива, просто оставила
+
+// 2 способ, замороченный, но работает
+// function formDate() {
+//     let date = new Date('2025-12-31');
+//     console.log('исходная дата', date);
+
+//     newDate = date.toLocaleString('ru');
+//     console.log('исходная дата', newDate);
+//     formatesDate = newDate.replace(/\./g,'/')
+//     console.log('дата в другом формате', formatesDate);
+//     console.log(formatesDate.split(', ')[0]);
+// }
+// formDate()
+
+// 3 способ с использованием массива, просто оставила
 // function formDate() {
 //     let date = '2025-12-31';
 //     let arr = date.split('-');
@@ -134,3 +144,25 @@ let opt = {
         return regExp2.test(phone);
     }
     console.log(checkPhone2('+375(017)12-515-21')); 
+
+
+// 9. Напишите ф-цию строгой проверки адреса эл. почты с учетом следующих условия:
+// - весь адрес не должен содержать русские буквы и спецсимволы, кроме одной «собачки», знака подчеркивания, дефиса и точки;
+// - имя эл. почты (до знака @) должно быть длиной более 2 символов, причем имя может содержать только буквы, цифры, но не быть первыми и единственными в имени;
+// - после последней точки и после @, домен верхнего уровня (ru, by, com и т.п.) не может быть длиной менее 2 и более 11 символов.
+// Функция должна возвращать true или false. Используйте регулярные  выражения.
+
+function checkEmail(mail) {
+    regExp3 = (^\D[\w{2,}].+(@{1})(\w{2,11})\.([a-z]{2,11})$);
+}
+
+checkEmail(xvvd12@mail.by)
+
+
+// [a-z0-9](\w+[\.\-_]?)+@{1}{2,11}[\.\-]?)\.[a-z]{2,11}
+// olymuzyka@yandex.Ru
+// olymuzyka@ya@bdex.ru
+// oly.muzyka@yabdex.ru
+// ol2ymuzyka@yabdex.rU
+// o1lymuzyka@yabdex.ru
+// 2oly_muzyka@yabdex.ru
