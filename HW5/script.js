@@ -76,44 +76,33 @@ function poiskMax() {
 
 //  5. Сделайте функцию isEven() (even - это четный), которая параметром принимает целое число и проверяет: четное оно или нет. Если четное - пусть функция возвращает true, если нечетное — false.
 
-// let a = prompt('vvedite chislo');
-//     if (a % 1 == 0) {
-//         alert('проверка на целое число пройдена')
-//     } else {
-//         alert('число не целое'); 
-// //     }
-// function isEven(param) {
     
-//     if (a % 2 == 0 ) {
-//         param = true
-//     } else {
-//         param = false
-//     }
-//     console.log(param)
-// }
-
-// isEven();
+function isEven(n) {
+    if (n % 1 == 0) {
+        console.log('проверка на целое число пройдена')
+    } 
+    if (n % 2 == 0 ) {
+        return true
+    } else {
+        return false
+    }
+    
+}
+// console.log(isEven(4));
 
 
 
 // 6. Напишите ф-цию, в которую передается массив с целыми числами. Верните новый массив, где останутся лежать только четные из этих чисел. Для этого используйте вспомогательную функцию isEven из предыдущей задачи.
 
-// let n = prompt('введите количество элементов');
-// let array = [];
-// newArray = [];
 function find() {
-for (let i = 1; i <= n; i++) {
-    array.push(i);
-}
+newArray = [];
 for (let i = 0; i < array.length; i++) {
-    if (array[i] % 2 == 0) {  // не придумала как верно реализовать isEven не работает как нужно
-        newArray.push(array[i]);
-        
-    }
+    if (isEven(array[i])) newArray.push(array[i]);
 }
-console.log(newArray);
+    return newArray;
 }
-// find();
+// let array = [2,1,7,5,9,3,2,4,8,5,0];
+// console.log(find(array));
 
 
 
@@ -145,13 +134,13 @@ console.log(newArray);
 //             str += i;
 //         }
 //         if ((s !=' ') || (s != undefined)) {
-//             str = 
-//             console.log()
+//             str += s;
+            
 //         }
 //     }
 //     console.log(str);
 //     }
-// piramida(k);
+// piramida(k,s);
 // эксперимент с другим символом не удался :() 
 
 // 8. Напишите ф-цию, которая рисует равнобедренный треугольник из звездочек: Кол-во рядов должно вводиться с клавиатуры. Доп., напишите такую же фцию, но которая выведет перевернутый треугольник
@@ -194,18 +183,18 @@ console.log(newArray);
 
 // 9. Напишите ф-цию, которая возвращает массив заполненный числами Фибоначи от 0 до 1000.
 
-function fibonacci(n) {
-    let fib = [0, 1];
-    let i;
+// function fibonacci(n) {
+//     let fib = [0, 1];
+//     let i;
     
-    for (i = 2; i < 17; i++){
+//     for (i = 2; i < 17; i++){
         
-        fib[i] = fib[i-1] + fib[i-2]; 
-    }
+//         fib[i] = fib[i-1] + fib[i-2]; 
+//     }
     
-    console.log(fib);
-}
-// // fibonacci();
+//     console.log(fib);
+// }
+// fibonacci();
 
 
 // 10. Дано число. Сложите его цифры. Если сумма получилась более 9-ти, опять сложите его цифры. И так, пока сумма не станет однозначным числом (9 и менее). Исп. Рекурсию.
@@ -246,5 +235,49 @@ function fibonacci(n) {
 
 // let num = prompt('vvedite chislo','');
 // console.log(num)
-// let final_num = getSum(num);
-// console.log('result = ' + final_num);
+// let final_sum = getSum(num);
+// console.log('result = ' + final_sum);
+
+
+//13. Напишите ф-цию, которая должна проверить правильность ввода адреса эл. почты, неиспользуя регулярные выражения. Почта верна при условии: 
+// a. весь адрес не должен содержать русские буквы и спецсимволы, кроме одной «собачки», знака подчеркивания, дефиса и точки, причем они не могут быть первыми и последними в адресе, и идти подряд, например: «..», «@.», «.@» или «@@», «_@», «@-», «--» и т.п.
+// b. имя эл. почты (до знака @) должно быть длиной более 2 символов, причем имя может содержать только буквы, цифры, но не быть первыми и единственными в имени, и точку;
+// c. после последней точки и после @, домен верхнего уровня (ru, by, com и т.п.) не может быть длиной менее 2 и более 11 символов. 
+
+function checkEmail(email) {
+    let result = true;
+    let spCh = ['@','-','_','.'];
+    let i = 0;
+
+    if (!email || typeof email != 'string') result = false;
+    if ((email.indexOf('@') == -1) ||
+        email.indexOf('@') != email.lastIndexOf('@')
+    ) result = false;
+
+    let ch = email.charCodeAt(i);
+    if (spCh.indexOf(email[0]) != -1 || spCh.indexOf(email[email.length-1]) != -1 
+     ) result = false;
+    
+
+    for (i = 0; i < email.length; i++) {
+        if (email[i] == ' ') {
+            result = false;
+            break;
+        }
+    }
+        if (!((ch >=65 && ch <=90) || (ch >= 97 && ch <= 122) || spCh.indexOf(email[i]) != -1 || !isNaN(email[i])))            
+        {
+            result = false;
+        }
+        if ((spCh.indexOf(email[i]) != -1) && spCh.indexOf(email[i+1]) != -1)
+        {
+            result = false;
+        }
+
+        let name = email.split('@')[0];
+        let siteName = email.split('@')[1];
+        if (name.length <= 2) result = false; 
+    return result;
+}
+
+// console.log(checkEmail('olymuzyka@yandex.ru'));
