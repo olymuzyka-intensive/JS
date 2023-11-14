@@ -3,7 +3,7 @@ let Calc = function() {
         alert('калькулятор включен');
     }
     this.get = function() {
-        this.a = +prompt('введиете число a');
+        this.a = +prompt('введите число a');
         this.b = + prompt('введите число b');
         this.oper = prompt('введите желаемую операцию: +, -, *, /');
 
