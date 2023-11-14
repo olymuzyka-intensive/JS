@@ -1,6 +1,10 @@
+// калькулятор
 let Calc = function() {
     this.on = function(){
         alert('калькулятор включен');
+    }
+    this.off = function(){
+        alert('калькулятор выключен');
     }
     this.get = function() {
         this.a = +prompt('введите число a');
@@ -38,8 +42,8 @@ let calc = new Calc();
 calc.on();
 calc.get();
 
-
-calc.off = function(){
-    alert('калькулятор выключен');
-}
 calc.off();
+
+
+// лампочка
+
