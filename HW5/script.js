@@ -274,21 +274,29 @@ for (let i = 0; i < array.length; i++) {
 // *****************************
 // Размер рамки должен определятся автоматически по самой длинной строке. 
 
-function dannie() {
-    let group = prompt('введите номер группы','');
-    let lastName = prompt ('введите свою фамилию','');
-    let firstName = prompt ('введите имя','');
-    let patr = prompt ('введите отчество','');
+// function dannie() {
+//     let group = prompt('введите номер группы','');
+//     let name = prompt ('введите фамилию, имя, отчество ','');
+//     let ramka = '';
+//     let l = 31; // по * Домашняя работа: 'Функции' *
+
+//     let arrName = name.split(' ');
 
 
-console.log(`Домашняя работа: 'Функции'`);
-console.log('Выполнил: студент гр.', group);
-console.log(lastName,' ',firstName, ' ', patr);
+//     while (ramka.length < arrName.length){
+//         ramka += '*';
+//     }
+
+// console.log(ramka);
+// console.log(`* Домашняя работа: 'Функции' *`);
+// console.log('* Выполнил: студент гр. ' + group + ' ');
+// console.log('* ' + arrName + ' ');
+// console.log(ramka);
 
 
 
-}
-dannie();
+// }
+// dannie();
 
 
 //13. Напишите ф-цию, которая должна проверить правильность ввода адреса эл. почты, неиспользуя регулярные выражения. Почта верна при условии: 
