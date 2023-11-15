@@ -45,6 +45,7 @@
 
 
 // лампочка
+
 let lamp = function(name){
     this.get = function(){
         this.name = name;
@@ -53,37 +54,42 @@ let lamp = function(name){
         this.infoTarif = 0.246; //кВт/ч
         this.timeOn;
         this.timeOff;  
-        this.infoTime = 0; // минут если указать число в консоли ответ сразу иду в консоль
+        this.infoTime = 1; // по умолчанию
 
         this.cost();
     }
-    this.onOff = function(){ 
+
+        this.onOff = function(){ 
         this.status = !this.status; //вкл/выкл
 
         if (this.status) this.timeOn = new Date();
         this.timeOff = new Date();
-        this.infoTime = this.timeOff - this.timeOn;
-    }
+        }
+
+        // this.infoTime = function(){ //undefined || Nun
+        //     let d2 = [this.timeOff].getTime;
+        //     let d1 = [this.timeOn].getTime;
+        //     return parseInt((d2-d1)/(24*3600*1000));
+        // }
+        // console.log(this.infoTime());
+
+        // this.infoTime = function(){ 
+        //     // return Math.round([this.timeOff].getTime - [this.timeOn].getTime);
+        //     // this.infoTime = this.timeOff - this.timeOn;
+        // }
+        // console.log(this.infoTime());
 
     this.cost = function(){ //подсчет стоимости электроэнергии
         this.result =  (this.infoWatt / 1000) * (this.infoTime/60) * this.infoTarif;
-        
         this.write();
-        
     }
 
     this.write = function(){
-
         console.log('лампочка ' + this.name  + ' была включена ' + this.infoTime + ' минут/часов ' + ' стоимость электроэнергии ' +this.result);
     }    
 }
 
 let lamp1 = new lamp('лампочка 1');  
 lamp1.get();
-
-// let lamp2 = new lamp('лампочка 2');  
-// lamp2.get();
-
-
-console.log(lamp1);
-// console.log(lamp2);
+let lamp2 = new lamp('лампочка 2');  
+lamp2.get();
