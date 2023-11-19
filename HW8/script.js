@@ -1,5 +1,5 @@
 let body = document.body;
-body.style.backgroundColor = '#fff'; // для видимости
+body.style.backgroundColor = '#fff'; 
 body.style.padding = '10%';
 body.style.margin = '0';
 body.style.width = '1280px';
@@ -69,7 +69,7 @@ div1.appendChild(div2);
 div2.style.display = 'flex';
 div2.style.flexDirection = 'column';
 div2.style.backgroundColor = '#fff';
-div2.style.border = '1px solid rgba(232, 233, 237, 1)'
+div2.style.border = '1px solid rgba(232, 233, 237, 1)';
 
 
 let div3 = document.createElement('div');
@@ -92,7 +92,7 @@ p2.style.color = '#9FA3A7';
 p2.style.fontFamily = 'Montserrat';
 p2.style.fontSize = '12px';
 p2.style.fontWeight = '700';
-p2.style.letterSpacing = '2.4px'
+p2.style.letterSpacing = '2.4px';
 
 
 let h2_1 =document.createElement('h2');
@@ -104,7 +104,7 @@ h2_1.style.color = '#212121';
 h2_1.style.fontFamily = 'Arvo';
 h2_1.style.fontSize = '36px';
 h2_1.style.fontWeight = '400';
-h2_1.style.lineHeight = '46px'
+h2_1.style.lineHeight = '46px';
 
 let p4 = document.createElement('p');
 p4.className = 'promo__item1_text';
@@ -116,7 +116,7 @@ p4.style.color = '#9FA3A7';
 p4.style.fontFamily = 'OpenSans';
 p4.style.fontSize = '12px';
 p4.style.fontWeight = '400';
-p4.style.lineHeight = '22px'
+p4.style.lineHeight = '22px';
 
 
 let button1 = document.createElement('button');
@@ -128,6 +128,14 @@ button1.style.padding = '8.5px 14.5px';
 button1.style.border = '3px solid #FFC80A';
 button1.style.width = '147px';
 button1.style.alignSelf = 'center';
+button1.style.color = '#212121';
+button1.style.fontFamily = 'Montserrat';
+button1.style.fontSize = '12px';
+button1.style.fontWeight = '700';
+button1.style.letterSpacing = '2.4px';
+button1.style.borderRadius = '45%';
+button1.style.background = 'none';
+
 
 let p3 = document.createElement('p');
 p3.className = 'promo__item2_title';
@@ -140,7 +148,7 @@ p3.style.color = '#FFC80A';
 p3.style.fontFamily = 'Montserrat';
 p3.style.fontSize = '12px';
 p3.style.fontWeight = '700';
-p3.style.letterSpacing = '2.4px'
+p3.style.letterSpacing = '2.4px';
 
 
 let h2_2 =document.createElement('h2');
@@ -152,7 +160,7 @@ h2_2.style.color = '#fff';
 h2_2.style.fontFamily = 'Arvo';
 h2_2.style.fontSize = '36px';
 h2_2.style.fontWeight = '400';
-h2_2.style.lineHeight = '46px'
+h2_2.style.lineHeight = '46px';
 
 let p5 = document.createElement('p');
 p5.className = 'promo__item2_text';
@@ -164,7 +172,7 @@ p5.style.color = '#fff';
 p5.style.fontFamily = 'OpenSans';
 p5.style.fontSize = '12px';
 p5.style.fontWeight = '400';
-p5.style.lineHeight = '22px'
+p5.style.lineHeight = '22px';
 
 let button2 = document.createElement('button');
 button2.className = 'btn'
@@ -175,5 +183,12 @@ button2.style.padding = '8.5px 14.5px';
 button2.style.border = '3px solid #FFC80A';
 button2.style.width = '147px';
 button2.style.alignSelf = 'center';
+button2.style.color = '#fff';
+button2.style.fontFamily = 'Montserrat';
+button2.style.fontSize = '12px';
+button2.style.fontWeight = '700';
+button2.style.letterSpacing = '2.4px';
 
-
+button2.style.borderRadius = '45%';
+button2.style.background = 'none';
+// button2.style.background = url('img/shape.png');
