@@ -22,54 +22,71 @@ h1.innerHTML = 'Choose Your Option';
 let p1 = document.createElement('p');
 p1.innerHTML = 'But I must explain to you how all this mistaken idea of denouncing';
 
-// const content1 = list.getElementsByClassName('promo');
-
-let h2_1 =document.createElement('h2');
-h2_1.innerHTML = 'Initially designed to';
-
-let p2 = document.createElement('p');
-p2.innerHTML = 'FREELANCER';
-
-let h2_2 =document.createElement('h2');
-h2_2.innerHTML = 'Initially designed to';
-
-
-let p3 = document.createElement('p');
-p3.innerHTML = 'STUDIO';
-
-let p4 = document.createElement('p');
-p4.innerHTML = 'But I must explain to you how all this mistaken idea of denouncing ';
-
-let p5 = document.createElement('p');
-p5.innerHTML = 'But I must explain to you how all this mistaken idea of denouncing ';
-
-let button1 = document.createElement('button');
-button1.innerHTML = 'START HERE';
-
-let button2 = document.createElement('button');
-button2.innerHTML = 'START HERE';
-
-
-
-
-
-
 document.body.appendChild(h1);
 document.body.appendChild(p1);
 
-document.body.appendChild(p2);
-document.body.appendChild(h2_1);
-document.body.appendChild(p4);
-document.body.appendChild(button1);
 
-document.body.appendChild(p3);
-document.body.appendChild(h2_2);
-document.body.appendChild(p5);
-document.body.appendChild(button2);
+let div1 = document.createElement('div');
+div1.classList.add('promo');
+document.body.appendChild(div1);
 
 
+let div2 = document.createElement('div');
+div2.className = 'promo__item1';
+div1.appendChild(div2);
+document.body.appendChild(div1);
 
-// let div1 = document.createElement('div')
-// div1.classList.add('option')
-// div1.appendChild(p1)
+let div3 = document.createElement('div');
+div3.className = 'promo__item2';
+div1.appendChild(div3);
+document.body.appendChild(div1);
 
+let h2_1 =document.createElement('h2');
+h2_1.className = 'promo__item1_sub';
+h2_1.innerHTML = 'Initially designed to';
+div2.appendChild(h2_1);
+document.body.appendChild(div2);
+
+let p2 = document.createElement('p');
+p2.className = 'promo__item1_title'
+p2.innerHTML = 'FREELANCER';
+div2.appendChild(p2);
+document.body.appendChild(div2);
+
+let p4 = document.createElement('p');
+p4.className = 'promo__item1_text'
+p4.innerHTML = 'But I must explain to you how all this mistaken idea of denouncing ';
+div2.appendChild(p4);
+document.body.appendChild(div2);
+
+let button1 = document.createElement('button');
+button1.className = 'btn'
+button1.innerHTML = 'START HERE';
+div2.appendChild(button1);
+document.body.appendChild(div2);
+
+
+
+let h2_2 =document.createElement('h2');
+h2_2.className = 'promo__item2_sub';
+h2_2.innerHTML = 'Initially designed to';
+div3.appendChild(h2_2);
+document.body.appendChild(div3);
+
+let p3 = document.createElement('p');
+p3.className = 'promo__item2_title'
+p3.innerHTML = 'STUDIO';
+div3.appendChild(p3);
+document.body.appendChild(div3);
+
+let p5 = document.createElement('p');
+p5.className = 'promo__item2_text'
+p5.innerHTML = 'But I must explain to you how all this mistaken idea of denouncing ';
+div3.appendChild(p5);
+document.body.appendChild(div3);
+
+let button2 = document.createElement('button');
+button2.className = 'btn'
+button2.innerHTML = 'START HERE';
+div3.appendChild(button2);
+document.body.appendChild(div3);
