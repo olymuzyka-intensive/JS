@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +5,7 @@
 }
 
 body {
-    font-family: 'Agbalumo';
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 ul {
@@ -16,14 +14,16 @@ ul {
 
 .app {
     width: 50%;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .app_header {
-        background: #70918a;;
+        background: #70918a;
     }
 
 h1 {
+    font-size: 22px;
+    text-transform: uppercase;
     text-align: center;
     color: #e8e1d7;
     padding: 10px 20px;
@@ -37,7 +37,24 @@ input {
     border: none;
 }
 
-.task_item {
+.shopping_item {
     border: 1px solid green;
     padding: 10px 10px;
+}
+
+.btn {
+    font-family: 'Agbalumo';
+    text-transform: uppercase;
+    margin-top: 20px;
+    width: 100%;
+    padding: 2% 5%;
+    background: #70918a;
+    color: #e8e1d7;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;    
+}
+.btn:hover {
+    background: #d3eee8;
+    color: green;
 }
