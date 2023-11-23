@@ -4,12 +4,18 @@ function addNewLi () {
 
     let shopList = document.querySelector('#shopping_list'); //поиск списка
     shopList.appendChild(newLi); //добавление элемента
+    
+    let input = document.querySelector('.write_shopping'); 
+    input.value = '';
+
 }
 
 let add = document.querySelector('.btn-add');
 add.addEventListener('click', addNewLi);
 
 
+let clear = document.querySelector('.btn-rem');
+// console.log(clear)
 
 
 
@@ -20,10 +26,10 @@ add.addEventListener('click', addNewLi);
 //     li.parentNode.remove(li);
 // }
 
-let clear = document.querySelector('.btn-rem');
-console.log(clear)
 
 
+// let input = document.querySelector('shopping_input'); 
+// console.log(input)
 
 
 
