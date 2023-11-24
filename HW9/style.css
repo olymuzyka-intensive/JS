@@ -60,7 +60,36 @@ input {
 }
 .addadLi {
     color: black;
-    height: 30px;
-    border: 1px solid #70918a;
+    height: 40px;
+    border: 3px solid #70918a;
     border-radius: 5px;
+    padding: 8px 5px 5px 40px;
+    margin-bottom: 5px;
+    position: relative;
+}
+checkbox {
+    border: 2px solid #70918a;
+    margin: 6px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    position: absolute;
+    font-weight: 900;
+    color: #2e3d3a;
+    cursor: pointer;
+    z-index: 100;
+    width: 25px;
+}
+
+.btn-edit {
+    font-size: 16px;
+    border: 2px solid #70918a;
+    background: none;
+    padding: 2px 5px;
+    border-radius: 5px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+    right: 6px;
+    top: 3.5px;
+    width: 30px;
 }
