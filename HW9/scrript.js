@@ -15,8 +15,6 @@ function addNewLi () {
     input.value = ''; //очищение поля после ввода
 
     let checkBoxElem =document.createElement('checkBox');
-    // checkBoxElem.setAttribute('type', 'checkbox')
-    // checkBoxElem.before(newLi.value);
     checkBoxElem.innerHTML = '&#10008'
     newLi.before(checkBoxElem);
 
@@ -26,49 +24,11 @@ function addNewLi () {
     newLi.append(editLi);
 }
 
+    let editLi = document.querySelector('checkBox')  
 
 
-
-// document.body.innerHTML = addNewli;
-
+    let clear = document.querySelector('.btn-edit');
 
 
-let clear = document.querySelector('.btn-rem');
-// console.log(clear)
+    let clearALL = document.querySelector('.btn-rem');
 
-
-
-
-
-// function removeLi(event) { //удаление элемента
-//     let li = event.target;
-//     li.parentNode.remove(li);
-// }
-
-
-
-// let input = document.querySelector('shopping_input'); 
-// console.log(input)
-
-
-
-
-// const AddItem = function(){
-//     this.create = function(){
-//         item.append(shopList)
-//     }
-//     return elem;
-// }
-
-
-
-// btn_clear.addEventListener('click', addItem);
-
-// const clearItem = function (){
-//  itemsElem.innerHTML = ''
-// }
-
-// let btnClear = document.createElement('button');
-// btnClear.addEventListener('click', addItem);
-// btnClear.innerHTML = 'clear';
-// btnClear.addEventListener('click', clearItem);

@@ -66,6 +66,7 @@ input {
     padding: 8px 5px 5px 40px;
     margin-bottom: 5px;
     position: relative;
+    
 }
 checkbox {
     border: 2px solid #70918a;
@@ -81,15 +82,15 @@ checkbox {
 }
 
 .btn-edit {
-    font-size: 16px;
+    font-size: 14px;
     border: 2px solid #70918a;
     background: none;
-    padding: 2px 5px;
+    padding: 2px 4px;
     border-radius: 5px;
     position: absolute;
     cursor: pointer;
     z-index: 100;
     right: 6px;
     top: 3.5px;
-    width: 30px;
+    width: 25px;
 }
