@@ -1,17 +1,29 @@
-function addNewLi () {
-    let newLi = document.createElement('li'); //создание элемента
-    // newLi.className = 'item';
+let shopList = document.querySelector('#shopping_list'); //поиск списка
+let li = document.querySelector('li');
+// let inputText = document.querySelector('write_shopping');
+let add = document.querySelector('.btn-add');
+add.addEventListener('click', addNewLi);
 
-    let shopList = document.querySelector('#shopping_list'); //поиск списка
-    shopList.appendChild(newLi); //добавление элемента
+function addNewLi () {
     
+
+    let newLi = document.createElement('li'); //создание элемента
+    newLi.className = 'addadLi';
+    value = document.querySelector('.write_shopping').value;
+    // let textLi = newLi.value;
+    newLi.textContent = value;
+    shopList.appendChild(newLi); //добавление элемента
+
     let input = document.querySelector('.write_shopping'); 
-    input.value = '';
+    input.value = ''; //очищение поля после ввода
+
 
 }
 
-let add = document.querySelector('.btn-add');
-add.addEventListener('click', addNewLi);
+
+
+// document.body.innerHTML = addNewli;
+
 
 
 let clear = document.querySelector('.btn-rem');

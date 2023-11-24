@@ -58,3 +58,9 @@ input {
     background: #d3eee8;
     color: green;
 }
+.addadLi {
+    color: black;
+    height: 30px;
+    border: 1px solid #70918a;
+    border-radius: 5px;
+}
