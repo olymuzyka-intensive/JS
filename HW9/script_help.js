@@ -8,7 +8,7 @@ let clearALL = document.querySelector('.btn-rem');
 
 function addNewLi () {
     let newLi = document.createElement('li'); //создание элемента
-    newLi.className = 'addLi';
+    newLi.className = 'addadLi';
     value = document.querySelector('.write_shopping').value;
     newLi.textContent = value;
     shopList.appendChild(newLi); //добавление элемента
@@ -25,4 +25,26 @@ function addNewLi () {
     editLi.className = 'btn-edit';
     editLi.innerHTML = '&#10000';
     newLi.append(editLi);
+
+
+
+//     function checkLi() {
+//         let checkBoxElemEdit = document.querySelector('checkBox');
+               
+//         checkBoxElemEdit.addEventListener('click', function(){
+//             checkBoxElemEdit.style.textDecoration = 'line-strough';
+//         });
+//     }
 }
+
+//     let clear = document.querySelector('.btn-edit');
+//     let clearList = function(){
+        
+
+//         clearALL.addEventListener('click', function(){
+
+//         });
+//         // shopList.removeChild(value);
+        
+//     }
+//     clearALL.addEventListener('click', clearList);

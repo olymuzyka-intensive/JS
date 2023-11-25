@@ -10,17 +10,21 @@
     <div class="app">
         <div class="container">
             <div class="app_header">
-                <h1>Список покупок</h1>
+                <img src="img/shop.png" alt="shop">
+                <h1>План покупок</h1>
             </div>
 
             <div class = 'shopping_input'>
-                <input class = 'write_shopping' type="text" maxlength="25" placeholder="Добавьте в список товар"> <button class = 'add_shopping'></button>
+                <input class = 'write_shopping' type="text" maxlength="25" placeholder="введи кратко..."> 
+                <!-- <button class = 'add_shopping'></button> -->
             </div>
 
             <ul id = 'shopping_list'>
             </ul>
-
-            <button class="btn btn-add">добавить покупку</button><button class="btn btn-rem">Очистить список</button>
+            <div class="edit_list">
+                <button class="btn btn-add">Добавить покупку</button>
+                <button class="btn btn-rem">Очистить список</button>
+            </div>
         </div>
     </div>
     <script src ='scrript.js'></script>
