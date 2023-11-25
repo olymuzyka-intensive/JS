@@ -5,6 +5,9 @@ let add = document.querySelector('.btn-add');
     add.addEventListener('click', addNewLi);
 let clearALL = document.querySelector('.btn-rem');
 
+let clearList = function(){
+    shopList.innerHTML = '';
+}
 
 function addNewLi () {
     let newLi = document.createElement('li'); //создание элемента
@@ -26,3 +29,5 @@ function addNewLi () {
     editLi.innerHTML = '&#10000';
     newLi.append(editLi);
 }
+
+clearALL.addEventListener('click', clearList);
