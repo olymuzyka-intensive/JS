@@ -76,14 +76,14 @@ input {
     border-radius: 5px;
     padding: 8px 5px 5px 40px;
     margin-bottom: 5px;
-    position: relative;
-    
+    position: relative;    
 }
 checkbox {
-    /* border: 2px solid #70918a; */
+    border: 2px solid #70918a;
+    height: 28px;
     margin: 6px;
     padding: 2px 5px;
-    /* border-radius: 5px; */
+    border-radius: 5px;
     position: absolute;
     font-weight: 900;
     color: #2e3d3a;
@@ -91,7 +91,9 @@ checkbox {
     z-index: 100;
     width: 25px;
 }
-
+active {
+    border: 2px solid #3cca1d;
+}
 .btn-edit {
     font-size: 14px;
     border: none;
