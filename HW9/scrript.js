@@ -33,8 +33,7 @@ function addNewLi () {
 
     editLi.addEventListener('click', function(){
         editElem(newLi);
-    })
-   
+    })   
 }
 
 function editElem (elem){
@@ -44,12 +43,3 @@ function editElem (elem){
     elem.innerHTML = newValue;
 }
 
-
-function activeElem(elem) {
-        let shopList = document.querySelector('#shopping_list'); //поиск списка
-        let activeLi = document.querySelectorAll('li');
-        for (let i = 0; i < shopList.length; i++) {
-        activeLi = shopList[i];
-        activeLi.style.textDecoration = 'line-through';
-        }
-    }
