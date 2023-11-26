@@ -21,7 +21,7 @@ function addNewLi () {
     input.value = ''; //очищение поля после ввода
 
     let checkBoxElem =document.createElement('input');
-    // checkBoxElem.className = 'addLi_check';
+    checkBoxElem.className = 'addLi_check';
     // checkBoxElem.innerHTML = '&#10008';
     checkBoxElem.setAttribute('type', 'checkbox');
     newLi.before(checkBoxElem);
@@ -34,25 +34,22 @@ function addNewLi () {
     editLi.addEventListener('click', function(){
         editElem(newLi);
     })
-
-    function editElem (elem){
-        let newValue = prompt ('изменить?');
-        // console.log(newValue);
-        if (newValue.length == 0) return;
-        elem.innerHTML = newValue;
-    }
-
-
-    // function activeElem(elem) {
-    //     let shopList = document.querySelector('#shopping_list'); //поиск списка
-    //     let activeLi = document.querySelector('li');
-    //     for (let i = 0; i < shopList.length; i++) {
-    //     activeLi = shopList[i];
-    //     activeLi.className = '';
-    //     }
-    //     elem.className = 'active';
-    // }
-    // checkBoxElem.addEventListener('click', activeElem);
-
+   
 }
 
+function editElem (elem){
+    let newValue = prompt ('изменить?');
+    // console.log(newValue);
+    if (newValue.length == 0) return;
+    elem.innerHTML = newValue;
+}
+
+
+function activeElem(elem) {
+        let shopList = document.querySelector('#shopping_list'); //поиск списка
+        let activeLi = document.querySelectorAll('li');
+        for (let i = 0; i < shopList.length; i++) {
+        activeLi = shopList[i];
+        activeLi.style.textDecoration = 'line-through';
+        }
+    }

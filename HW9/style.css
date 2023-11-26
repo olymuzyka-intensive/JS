@@ -11,7 +11,6 @@ body {
 ul {
     list-style: none;
 }
-
 .app {
     width: 50%;
     margin: 10px auto;
@@ -36,7 +35,7 @@ h1 {
     padding: 10px 20px;
     text-shadow: #101010 7px 0 5px;
 }
-input {
+.write_shopping {
     width: 100%;
     background: #d3eee8;
     padding: 10px;
@@ -70,17 +69,22 @@ input {
     color: green;
 }
 .addLi {
+    overflow-wrap: break-word; 
+    word-wrap: break-word; 
+    word-break: break-word; 
+    /* white-space: pre-line; */
     color: black;
-    height: 40px;
     border: 3px solid #70918a;
     border-radius: 5px;
-    padding: 8px 5px 5px 40px;
+    padding: 8px 30px 5px 40px;
     margin-bottom: 5px;
-    position: relative;    
+    position: relative;   
+    min-height: 40px;
+
 }
-checkbox {
+.addLi_check {
     border: 2px solid #70918a;
-    height: 28px;
+    height: 25px;
     margin: 6px;
     padding: 2px 5px;
     border-radius: 5px;
@@ -91,9 +95,7 @@ checkbox {
     z-index: 100;
     width: 25px;
 }
-active {
-    border: 2px solid #3cca1d;
-}
+
 .btn-edit {
     font-size: 14px;
     border: none;
