@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(209, 239, 209);
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.biblApp {    
+    background: white;
+}
+
+.biblApp__header {
+    background: forestgreen;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    text-shadow: #FC0 1px 0 10px;
+}
+
