@@ -55,3 +55,28 @@ function editElem (elem){
     //     elem.className = 'active';
     // }
     // checkBoxElem.addEventListener('click', activeElem);
+
+
+    // let shopList = document.querySelector('#shopping_list').querySelector('.addLi'); //поиск списка
+        
+// for (let i = 0; i < shopList.length; i++) {
+//     shopList[i].addEventListener('click', completeLi);
+//     }
+// function completeLi(event) {
+//         let compLi = event.target;
+//         compLi.style.textDecoration = newLi.completed ? 'line-through' : 'none';
+
+// }
+
+// // if (checkBoxElem == true) 
+// // newLi.style.textDecoration = 'line-through';
+
+function activeElem(elem) {
+    let shopList = document.querySelector('#shopping_list'); //поиск списка
+    for (let i = 0; i < shopList.length; i++) {
+        let activeLi = document.querySelector('li');
+        activeLi = newLi.completed; 
+        // = shopList[i]; b
+    activeLi.className = '.addLi-active';
+    }
+}
