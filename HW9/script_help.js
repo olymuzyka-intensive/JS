@@ -14,7 +14,8 @@ function addNewLi () {
     let newLi = document.createElement('li'); //создание элемента
     newLi.className = 'addLi';
     value = document.querySelector('.write_shopping').value;
-    newLi.textContent = value;
+    // newLi.textContent = value;
+    newLi.innerHTML = `<span>${value}</span>`;
     shopList.appendChild(newLi); //добавление элемента
 
     let input = document.querySelector('.write_shopping'); 
@@ -22,8 +23,8 @@ function addNewLi () {
 
     let checkBoxElem =document.createElement('input');
     checkBoxElem.className = 'addLi_check';
-    // checkBoxElem.innerHTML = '&#10008';
     checkBoxElem.setAttribute('type', 'checkbox');
+    checkBoxElem.checked = newLi.completed; //
     newLi.before(checkBoxElem);
 
     let editLi = document.createElement('button');
@@ -33,16 +34,19 @@ function addNewLi () {
 
     editLi.addEventListener('click', function(){
         editElem(newLi);
-    })
-   
+    })   
 }
 
 function editElem (elem){
     let newValue = prompt ('изменить?');
     // console.log(newValue);
     if (newValue.length == 0) return;
-    elem.innerHTML = newValue;
+
+    let spanElem = elem.querySelector('span');
+    spanElem.innerHTML = newValue;
+    // elem.innerHTML = newValue;
 }
+
 
 
 // function activeElem(elem) {

@@ -2,7 +2,17 @@ let shopList = document.querySelector('#shopping_list'); //поиск списк
 let li = document.querySelector('li');
 
 let add = document.querySelector('.btn-add');
-    add.addEventListener('click', addNewLi);
+    add.addEventListener('click', function(){
+        addNewLi();
+    });
+
+let addLi = document.querySelector('.write_shopping');
+    addLi.addEventListener('keyup', function(e){
+        if (e.keyCode === 13) {
+            addNewLi();
+        }
+    })
+
 
 let clearALL = document.querySelector('.btn-rem');
 let clearList = function(){
@@ -13,6 +23,7 @@ clearALL.addEventListener('click', clearList);
 function addNewLi () {
     let newLi = document.createElement('li'); //создание элемента
     newLi.className = 'addLi';
+
     value = document.querySelector('.write_shopping').value;
     // newLi.textContent = value;
     newLi.innerHTML = `<span>${value}</span>`;
