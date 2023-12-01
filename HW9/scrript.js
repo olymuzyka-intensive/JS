@@ -14,7 +14,8 @@ function addNewLi () {
     let newLi = document.createElement('li'); //создание элемента
     newLi.className = 'addLi';
     value = document.querySelector('.write_shopping').value;
-    newLi.textContent = value;
+    // newLi.textContent = value;
+    newLi.innerHTML = `<span>${value}</span>`;
     shopList.appendChild(newLi); //добавление элемента
 
     let input = document.querySelector('.write_shopping'); 
@@ -40,6 +41,9 @@ function editElem (elem){
     let newValue = prompt ('изменить?');
     // console.log(newValue);
     if (newValue.length == 0) return;
-    elem.innerHTML = newValue;
+
+    let spanElem = elem.querySelector('span');
+    spanElem.innerHTML = newValue;
+    // elem.innerHTML = newValue;
 }
 
