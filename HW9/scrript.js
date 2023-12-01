@@ -8,7 +8,7 @@ let add = document.querySelector('.btn-add');
 
 let addLi = document.querySelector('.write_shopping');
     addLi.addEventListener('keyup', function(e){
-        if (e.keyCode === 13) {
+        if (e.keyCode === 13 && this.value.length > 0) {
             addNewLi();
         }
     })
