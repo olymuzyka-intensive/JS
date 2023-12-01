@@ -35,8 +35,7 @@ function addNewLi () {
     let checkBoxElem =document.createElement('input');
     checkBoxElem.className = 'addLi_check';
     checkBoxElem.setAttribute('type', 'checkbox');
-    checkBoxElem.checked = newLi.completed; //
-    newLi.before(checkBoxElem);
+        newLi.before(checkBoxElem);
 
     let editLi = document.createElement('button');
     editLi.className = 'btn-edit';
@@ -57,4 +56,3 @@ function editElem (elem){
     spanElem.innerHTML = newValue;
     // elem.innerHTML = newValue;
 }
-

@@ -80,8 +80,8 @@ h1 {
     margin-bottom: 5px;
     position: relative;   
     min-height: 40px;
+    }
 
-}
 .addLi_check {
     border: 2px solid #70918a;
     height: 25px;
@@ -111,10 +111,6 @@ h1 {
     width: 25px;
 }
 
-.addLi-active {
+.addLi_check:checked + .addLi {
     text-decoration: line-through;
 }
-
-/* .addLi_check:checked ~ activeLi:checked {
-    text-decoration: line-through;
-} */
