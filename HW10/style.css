@@ -24,3 +24,44 @@ body {
     text-shadow: #FC0 1px 0 10px;
 }
 
+.book_input {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+input {
+    background: #dfd4c4;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 5px;
+    
+}
+
+.edit_list {  
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    padding: 2px 4px;
+    cursor: pointer;
+}
+
+.btn {
+    text-transform: uppercase;
+    margin-top: 10px;
+    padding: 2% 5%;
+    background: #453B2E;
+    color: #e8e1d7;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 5px;
+    border: 2px solid #9a8870;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #534636;
+    color: #d4a56d;
+}
