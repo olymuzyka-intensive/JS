@@ -9,7 +9,23 @@
 <body>
     <div class="biblApp">
         <div class="container">
-            <h1 class="biblApp__header">БИБЛИОТЕКА</h1>
+            <h1 class="biblApp__header">БИБЛИОТЕКА</h1>            
+        </div>
+
+        <div class="book_add">
+            <div class = 'book_input'>
+                <input class = 'book_title' type="text" maxlength="50" placeholder="ввести кратко..."> 
+                <input class = 'book_author' type="text" maxlength="50" placeholder="ввести кратко..."> 
+                <input class = 'book_category' type="text" maxlength="50" placeholder="ввести кратко..."> 
+                <input class = 'book_rating' type="text" maxlength="50" placeholder="ввести кратко..."> 
+            </div>
+        </div>
+
+        <ul id = 'books_list'>
+        </ul>
+        <div class="edit_list">
+            <button class="btn btn-add">Добавить книгу</button>
+            <button class="btn btn-rem">Очистить список</button>
         </div>
     </div>
     <script src="script.js"></script>
