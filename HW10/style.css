@@ -12,9 +12,9 @@ body {
     background-size: 100% auto;
 }
 
-ul {
+/* ul {
     list-style: none;
-}
+} */
 
 .biblApp__header {
     background: #453B2E;
@@ -98,15 +98,27 @@ input {
     background: #e5e3de;
     }
 
-    .btn-edit {
-        font-size: 14px;
-        border: none;
-        background: none;
-        padding: 2px 4px;
-        position: absolute;
-        cursor: pointer;
-        z-index: 100;
-        right: 6px;
-        top: 3.5px;
-        width: 25px;
-    }
+.btn-edit {
+    font-size: 14px;
+    border: none;
+    background: none;
+    padding: 2px 4px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+    right: 6px;
+    top: 3.5px;
+    width: 25px;
+}
+
+.books_list {
+    background: #9a8870;
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px 5px;    
+    border-radius: 5px;
+}
+
+h2, h3, h4 {
+    padding-right: 5px;
+}

@@ -21,16 +21,16 @@
                 <input class = 'book_title' type="text" maxlength="50" placeholder="Название книги"> 
                 <input class = 'book_author' type="text" maxlength="30" placeholder="Автор"> 
                 <input class = 'book_category' type="text" maxlength="20" placeholder="Категория"> 
-                <input class = 'book_rating' type="" maxlength="1" value = '5' placeholder="Оценка"> 
+                <input class = 'book_rating' type="number" maxlength="1"  placeholder="Оценка"> 
                 <div class="edit_list">
-                    <button type ='submit' class="btn btn-ok">Добавить в спикок</button>
-                    <button class="btn btn-cancel" onclick = "closeForm"> Отменить</button>
+                    <button type ='submit' class="btn btn-ok">Добавить в список</button>
+                    <button class="btn btn-cancel" onclick = "closeForm()"> Отменить</button>
                 </div>
             </div>
         </div>
 
-        <ul id = 'books_list'>
-        </ul>
+        <div class = 'books_list'>
+        </div>
 
         
 
