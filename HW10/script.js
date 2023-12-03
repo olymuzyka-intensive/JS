@@ -42,3 +42,57 @@ myBooks.add(new Book('Мгновения Вечности','поэзия','Вл�
 myBooks.add(new Book('Прибытие на Марс','фантастика','Иван Беров', 2));
 
 myBooks.show();
+
+
+let myBibl = document.querySelector('#books_list');
+let li = document.querySelector('li');
+
+let add = document.querySelector('.btn-add');
+    add.addEventListener('click', function(){
+        addNewLi();
+    });
+
+let addLi = document.querySelector('.book_title');
+    addLi.addEventListener('keyup', function(e){
+        if (e.keyCode === 13 && this.value.length > 0) {
+            addNewLi();
+        }
+    })
+
+let clearALL = document.querySelector('.btn-rem');
+let clearList = function(){
+    myBibl.innerHTML = '';
+}
+clearALL.addEventListener('click', clearList);
+
+function addNewLi () {
+    let newLi = document.createElement('li'); //создание элемента
+    newLi.className = 'addLi';
+
+    value = document.querySelector('.book_title').value;
+    // newLi.textContent = value;
+    newLi.innerHTML = `<span>${value}</span>`;
+    myBibl.appendChild(newLi); //добавление элемента
+
+    let input = document.querySelector('.book_title'); 
+    input.value = ''; //очищение поля после ввода
+
+    let editLi = document.createElement('button');
+    editLi.className = 'btn-edit';
+    editLi.innerHTML = '&#10000';
+    newLi.append(editLi);
+
+    editLi.addEventListener('click', function(){
+        editElem(newLi);
+    })   
+}
+
+function editElem (elem){
+    let newValue = prompt ('изменить?');
+    // console.log(newValue);
+    if (newValue.length == 0) return;
+
+    let spanElem = elem.querySelector('span');
+    spanElem.innerHTML = newValue;
+    // elem.innerHTML = newValue;
+}
