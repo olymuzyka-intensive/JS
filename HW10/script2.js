@@ -18,40 +18,53 @@ const MyBooks = function(){
     }
 
     this.show = function(){
+        // document.write('<ul>');
 
         this.data.forEach(function(item){
             item.show();
         });
 
+        // document.write('</ul>');
     }
 };
 
+let myBooks = new MyBooks();
+
+myBooks.add(new Book('Огненная вспышка','детектив','Ричард Старк', 5));
+myBooks.add(new Book('Воздушный витязь','проза','Игорь Соркин', 4));
+myBooks.add(new Book('Дракон Фенстонов','приключения','Анри Верн', 3));
+myBooks.add(new Book('Заколдованное счастье','поэзия','Лев Маляков', 5));
+myBooks.add(new Book('Игры теней','фантастика','Ерофей Трофимов', 5));
+myBooks.add(new Book('Пропавшие','детектив','Джейн Кейси', 4));
+myBooks.add(new Book('Книга чудес','проза','Натаниель Готорн', 4));
+myBooks.add(new Book('Разум океана','приключения','Станислав Гагарин', 5));
+myBooks.add(new Book('Мгновения Вечности','поэзия','Владимир Кевхишвили', 3));
+myBooks.add(new Book('Прибытие на Марс','фантастика','Иван Беров', 2));
+
+myBooks.show();
+
 function openForm() {
-    document.getElementById("myForm").style.display = "block";
-  }
-  
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
+    document.querySelector(".book_add").style.display = "block";
+}
+
+function closeForm() {
+    document.querySelector(".book_add").style.display = "none";
+}
 
 let myBibl = document.querySelector('#books_list');
 let li = document.querySelector('li');
 
-let add = document.querySelector('.btn-ok');
+let add = document.querySelector('.btn-add');
     add.addEventListener('click', function(){
         addNewLi();
     });
-let cancel = document.querySelector('.btn-cancel');
-    cancel.addEventListener('click', function(){
-        return;
-    });    
 
 let addLi = document.querySelector('.book_title');
     addLi.addEventListener('keyup', function(e){
         if (e.keyCode === 13 && this.value.length > 0) {
             addNewLi();
         }
-    })    
+    })
 
 let clearALL = document.querySelector('.btn-rem');
 let clearList = function(){
@@ -64,44 +77,28 @@ function addNewLi () {
     newLi.className = 'addLi';
 
     value = document.querySelector('.book_title').value;
-    newLiTt = document.createElement('h2');
-    newLiTt.innerHTML = `<h2>${value}</h2>`;
-    newLi.appendChild(newLiTt); //добавление элемента
-
-    value1 = document.querySelector('.book_author').value;
-    newLiAt = document.createElement('h3');
-    newLiAt.innerHTML = `<h3>${value1}</h3>`;
-    newLi.appendChild(newLiAt); //добавление элемента
-
-    value2 = document.querySelector('.book_category').value;
-    newLiCt = document.createElement('h4');
-    newLiCt.innerHTML = `<h4>${value2}</h4>`;
-    newLi.appendChild(newLiCt); //добавление элемента
-
-    value3 = document.querySelector('.book_rating').value;
-    newLiRt = document.createElement('span');
-    newLiRt.innerHTML = `<span>${value3}</span>`;
-    newLi.appendChild(newLiRt); //добавление элемента
+    newLi.innerHTML = `<h1>${value}</h1>`;
+    myBibl.appendChild(newLi); //добавление элемента
 
 
-    // let input = document.querySelector('li'); 
-    // input.value = ''; //очищение поля после ввода
+    let input = document.querySelector('.book_title'); 
+    input.value = ''; //очищение поля после ввода
 
     let editLi = document.createElement('button');
     editLi.className = 'btn-edit';
     editLi.innerHTML = '&#10000';
     newLi.append(editLi);
 
-    // editLi.addEventListener('click', function(){
-    //     editElem(newLi);
-    // })   
+    editLi.addEventListener('click', function(){
+        editElem(newLi);
+    })   
 }
 
 function editElem (elem){
     let newValue = prompt ('изменить?');
     if (newValue.length == 0) return;
 
-    let titElem = elem.querySelector('h2');
+    let titElem = elem.querySelector('h1');
     titElem.innerHTML = newValue;
 }
 

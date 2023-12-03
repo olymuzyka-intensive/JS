@@ -12,19 +12,29 @@
             <h1 class="biblApp__header">МОЯ БИБЛИОТЕКА</h1>            
         </div>
 
+        <div class="add_list">
+            <button class="btn btn-add" onclick="openForm()">Добавить книгу</button>
+        </div>
+
         <div class="book_add">
-            <div class = 'book_input'>
+            <div class = 'popup_book' id = 'myForm'>
                 <input class = 'book_title' type="text" maxlength="50" placeholder="Название книги"> 
-                <input class = 'book_author' type="text" maxlength="50" placeholder="Автор"> 
-                <input class = 'book_category' type="text" maxlength="50" placeholder="Категория"> 
-                <input class = 'book_rating' type="" maxlength="50" placeholder="Оценка"> 
+                <input class = 'book_author' type="text" maxlength="30" placeholder="Автор"> 
+                <input class = 'book_category' type="text" maxlength="20" placeholder="Категория"> 
+                <input class = 'book_rating' type="" maxlength="1" value = '5' placeholder="Оценка"> 
+                <div class="edit_list">
+                    <button type ='submit' class="btn btn-ok">Добавить в спикок</button>
+                    <button class="btn btn-cancel" onclick = "closeForm"> Отменить</button>
+                </div>
             </div>
         </div>
 
         <ul id = 'books_list'>
         </ul>
-        <div class="edit_list">
-            <button class="btn btn-add">Добавить книгу</button>
+
+        
+
+        <div class="clear_list">
             <button class="btn btn-rem">Очистить весь список</button>
         </div>
     </div>
