@@ -18,9 +18,9 @@
 
         <div class="book_add">
             <div class = 'popup_book' id = 'myForm'>
-                <input class = 'book_title' type="text" maxlength="50" placeholder="Название книги"> 
-                <input class = 'book_author' type="text" maxlength="30" placeholder="Автор"> 
-                <input class = 'book_category' type="text" maxlength="20" placeholder="Категория"> 
+                <input class = 'book_title' type="text" minlength='1' maxlength="50" placeholder="Название книги"> 
+                <input class = 'book_author' type="text" minlength='1' maxlength="30" placeholder="Автор"> 
+                <input class = 'book_category' type="text" minlength='1' maxlength="20" placeholder="Категория"> 
                 <input class = 'book_rating' type="number" maxlength="1"  placeholder="Оценка"> 
                 <div class="edit_list">
                     <button type ='submit' class="btn btn-ok">Добавить в список</button>
@@ -29,10 +29,8 @@
             </div>
         </div>
 
-        <div class = 'books_list'>
+        <div id = 'books_list'>
         </div>
-
-        
 
         <div class="clear_list">
             <button class="btn btn-rem">Очистить весь список</button>

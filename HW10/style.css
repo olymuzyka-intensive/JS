@@ -12,9 +12,9 @@ body {
     background-size: 100% auto;
 }
 
-/* ul {
+ul {
     list-style: none;
-} */
+}
 
 .biblApp__header {
     background: #453B2E;
@@ -22,10 +22,7 @@ body {
     text-align: center;
     color: white;
 }
-h2 {
-    text-transform: uppercase;
-    font-size: 20px;
-}
+
 .popup_book {
     display: none;
     flex-direction: column;
@@ -111,14 +108,35 @@ input {
     width: 25px;
 }
 
-.books_list {
+#books_list {
     background: #9a8870;
     width: 80%;
     margin: 20px auto;
     padding: 10px 5px;    
     border-radius: 5px;
+    word-wrap: break-word; 
+    word-break: break-word; 
 }
-
+.book_item {
+    display: flex;
+    position: relative;
+    background: #dfd4c4;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 16px;
+}
 h2, h3, h4 {
     padding-right: 5px;
+    /* font-variant: small-caps; */
+    font-size: 20px;
+}
+
+span {
+    vertical-align: super;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: 25px;
+    color: #2f2b27;
 }

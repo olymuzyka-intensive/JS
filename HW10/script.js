@@ -36,12 +36,21 @@ function openForm() {
 
 let add = document.querySelector('.btn-ok');
     add.addEventListener('click', function(){
+        // if (!newLiTt.value){
+        //     alert('заполните поле');
+        //     return;
+        // }
+        // // if (!newLiAt.value){
+        // //     alert('заполните поле');
+        // //     return;
+        // // }
+        // // if (!newLiCt.value){
+        // //     alert('заполните поле');
+        // //     return;
+        // // }
+        // this.submit()
         addNewLi();
     });
-let cancel = document.querySelector('.btn-cancel');
-    cancel.addEventListener('click', function(){
-        // myBibl.innerHTML = '';
-    });    
 
 let addLi = document.querySelector('.book_title');
     addLi.addEventListener('keyup', function(e){
@@ -68,7 +77,7 @@ let addLi = document.querySelector('.book_title');
         }
     })  
 
-let myBibl = document.querySelector('.books_list');
+let myBibl = document.querySelector('#books_list');
 
 let clearALL = document.querySelector('.btn-rem');
 let clearList = function(){
@@ -77,30 +86,31 @@ let clearList = function(){
 clearALL.addEventListener('click', clearList);
 
 function addNewLi () {
-    let myBook = document.querySelector('.book_item');
-    let newLi = document.createElement('div'); //создание элемента
-    newLi.className = 'addLi';
+    let myBook = document.createElement('div');
+    myBook.className = 'book_item';
+
+    myBibl.appendChild(myBook);
 
     value = document.querySelector('.book_title').value;
     newLiTt = document.createElement('h2');
     newLiTt.innerHTML = `<h2>${value}</h2>`;
-    myBibl.appendChild(newLiTt); //добавление элемента
+    myBook.appendChild(newLiTt); //добавление элемента
 
 
     value1 = document.querySelector('.book_author').value;
     newLiAt = document.createElement('h3');
     newLiAt.innerHTML = `<h3>${value1}</h3>`;
-    myBibl.appendChild(newLiAt); //добавление элемента
+    myBook.appendChild(newLiAt); //добавление элемента
 
     value2 = document.querySelector('.book_category').value;
     newLiCt = document.createElement('h4');
     newLiCt.innerHTML = `<h4>${value2}</h4>`;
-    myBibl.appendChild(newLiCt); //добавление элемента
+    myBook.appendChild(newLiCt); //добавление элемента
 
     value3 = document.querySelector('.book_rating').value;
     newLiRt = document.createElement('span');
     newLiRt.innerHTML = `<span>${value3}</span>`;
-    myBibl.appendChild(newLiRt); //добавление элемента
+    myBook.appendChild(newLiRt); //добавление элемента
 
     let clear = document.querySelector('.book_title'); 
     clear.value = ''; //очищение поля после ввода
@@ -111,6 +121,14 @@ function addNewLi () {
     let clear4 = document.querySelector('.book_rating'); 
     clear4.value = ''; //очищение поля после ввода
 
+    let editLi = document.createElement('button');
+    editLi.className = 'btn-edit';
+    editLi.innerHTML = '&#10000';
+    myBook.append(editLi);
+
+    editLi.addEventListener('click', function(){
+        editElem(myBook);
+    }) 
     
 }
 
@@ -120,18 +138,35 @@ function editElem (elem){
 
     let titElem = elem.querySelector('h2');
     titElem.innerHTML = newValue;
+    let authorElem = elem.querySelector('h3');
+    authorElem.innerHTML = newValue;
+    let categoryElem = elem.querySelector('h4');
+    categoryElem.innerHTML = newValue;
+    let spanElem = elem.querySelector('span');
+    spanElem.innerHTML = newValue;
 }
+                                                                                   
+    
 
+
+
+
+// let myBooks = new MyBooks();
+
+// myBooks.add(new Book('Огненная вспышка','детектив','Ричард Старк', 5));
+// myBooks.add(new Book('Воздушный витязь','проза','Игорь Соркин', 4));
+// myBooks.add(new Book('Дракон Фенстонов','приключения','Анри Верн', 3));
+// myBooks.add(new Book('Заколдованное счастье','поэзия','Лев Маляков', 5));
+// myBooks.add(new Book('Игры теней','фантастика','Ерофей Трофимов', 5));
+// myBooks.add(new Book('Пропавшие','детектив','Джейн Кейси', 4));
+// myBooks.add(new Book('Книга чудес','проза','Натаниель Готорн', 4));
+// myBooks.add(new Book('Разум океана','приключения','Станислав Гагарин', 5));
+// myBooks.add(new Book('Мгновения Вечности','поэзия','Владимир Кевхишвили', 3));
+// myBooks.add(new Book('Прибытие на Марс','фантастика','Иван Беров', 2));
+// myBooks.show();
 // let resultCategory = data.filter(function(item){
 //     return item.category == 'проза'
 // })
 
-
-let editLi = document.createElement('button');
-    editLi.className = 'btn-edit';
-    editLi.innerHTML = '&#10000';
-    newLi.append(editLi);
-
-    editLi.addEventListener('click', function(){
-        editElem(newLi);
-    })   
+// console.log(resultCategory)
+  
