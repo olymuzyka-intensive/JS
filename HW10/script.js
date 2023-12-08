@@ -1,29 +1,4 @@
-const Book = function(title = '', category = '', author = '', rating = ''){
-    this.title = title;
-    this.category = category;
-    this.author = author;
-    this.rating = rating;
-
-
-this.show = function(){
-    console.log(`${this.title} ${this.author} (${this.category}) ${this.rating}`);
-    }
-}
-const MyBooks = function(){
-    this.data = [];
-
-    this.add = function(Book = {}){
-        this.data.push(Book);
-    }
-
-    this.show = function(){
-
-        this.data.forEach(function(item){
-            item.show();
-        });
-
-    }
-};
+let myBibl = document.querySelector('#books_list');
 
 function openForm() {
     document.getElementById("myForm").style.display = "flex";
@@ -33,7 +8,18 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
+
+let clearALL = document.querySelector('.btn-rem');
+let clearList = function(){
+    myBibl.innerHTML = '';
+}
+clearALL.addEventListener('click', clearList);
+
 let addLi = document.querySelector('.book_title');
+let addLi2 = document.querySelector('.book_author');
+let addLi3 = document.querySelector('.book_category');
+let addLi4 = document.querySelector('.book_rating');
+
 
 let add = document.querySelector('.btn-ok');
     add.addEventListener('click', function(){
@@ -45,32 +31,24 @@ let add = document.querySelector('.btn-ok');
             addNewLi();
         }
     }) 
-    let addLi2 = document.querySelector('.book_author');
     addLi2.addEventListener('keyup', function(e){
         if (e.keyCode === 13 && this.value.length > 0) {
             addNewLi();
         }
     })     
-    let addLi3 = document.querySelector('.book_category');
     addLi3.addEventListener('keyup', function(e){
         if (e.keyCode === 13 && this.value.length > 0) {
             addNewLi();
         }
     })     
-    let addLi4 = document.querySelector('.book_rating');
     addLi4.addEventListener('keyup', function(e){
         if (e.keyCode === 13 && this.value.length > 0) {
             addNewLi();
         }
     })  
 
-let myBibl = document.querySelector('#books_list');
 
-let clearALL = document.querySelector('.btn-rem');
-let clearList = function(){
-    myBibl.innerHTML = '';
-}
-clearALL.addEventListener('click', clearList);
+
 
 function addNewLi () {
     let myBook = document.createElement('li');
@@ -98,9 +76,9 @@ function addNewLi () {
     myBook.appendChild(newLiCt); //добавление элемента
 
     value3 = document.querySelector('.book_rating').value;
-    newLiRt = document.createElement('span');
+    newLiRt = document.createElement('div');
     newLiRt.classList.add ('rating');
-    newLiRt.innerHTML = `<span>${value3}</span>`;
+    newLiRt.innerHTML = `<div>${value3}</div>`;
     myBook.appendChild(newLiRt); //добавление элемента
 
     let clear = document.querySelector('.book_title'); 
@@ -154,5 +132,34 @@ function addNewLi () {
     }) 
 
     
-}                                                         
+}      
+
+const Book = function(title = '', category = '', author = '', rating = ''){
+    this.title = title;
+    this.category = category;
+    this.author = author;
+    this.rating = rating;
+
+
+this.show = function(){
+    console.log(`${this.title} ${this.author} (${this.category}) ${this.rating}`);
+    }
+}
+const MyBooks = function(){
+    this.data = [];
+
+    this.add = function(Book = {}){
+        this.data.push(Book);
+    }
+
+    this.show = function(){
+
+        this.data.forEach(function(item){
+            item.show();
+        });
+
+    }
+};
+
+                                                   
     

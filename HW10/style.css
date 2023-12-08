@@ -137,6 +137,7 @@ input {
     margin-top: 5px;
     padding: 5px;
     font-size: 16px;
+
 }
 .title {
     font-size: 18px;
@@ -156,10 +157,24 @@ input {
 
 
 
-span {
+.rating {
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 26px;
     margin-left: auto;
-    margin-right: 50px;
-    color: #2f2b27;
+    margin-right: 60px;
+    color: #ed0d0d;
+}
+
+@media (max-width: 768px) {
+    .book_item {
+        display: block;      
+    }
+    .category {
+        margin-right: 10px;
+        text-align: end;
+    }
+    .rating {
+        margin-right: 10px;
+        text-align: end;
+    }
 }
