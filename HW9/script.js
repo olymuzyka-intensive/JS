@@ -1,17 +1,18 @@
 let shopList = document.querySelector('#shopping_list'); //поиск списка
 let li = document.querySelector('li');
 
+let addLi = document.querySelector('.write_shopping');
+
 let add = document.querySelector('.btn-add');
     add.addEventListener('click', function(){
-        addNewLi();
+        if (addLi.value.length > 0) addNewLi();
     });
 
-let addLi = document.querySelector('.write_shopping');
-    addLi.addEventListener('keyup', function(e){
-        if (e.keyCode === 13 && this.value.length > 0) {
-            addNewLi();
-        }
-    })
+addLi.addEventListener('keyup', function(e){
+    if (e.keyCode === 13 && this.value.length > 0) {
+        addNewLi();
+    }
+})
 
 
 let clearALL = document.querySelector('.btn-rem');
@@ -49,10 +50,9 @@ function addNewLi () {
 
 function editElem (elem){
     let newValue = prompt ('изменить?');
-    // console.log(newValue);
     if (newValue.length == 0) return;
 
     let spanElem = elem.querySelector('span');
     spanElem.innerHTML = newValue;
-    // elem.innerHTML = newValue;
+    
 }

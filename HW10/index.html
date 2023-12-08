@@ -17,20 +17,20 @@
         </div>
 
         <div class="book_add">
-            <div class = 'popup_book' id = 'myForm'>
-                <input class = 'book_title' type="text" minlength='1' maxlength="50" placeholder="Название книги"> 
-                <input class = 'book_author' type="text" minlength='1' maxlength="30" placeholder="Автор"> 
-                <input class = 'book_category' type="text" minlength='1' maxlength="20" placeholder="Категория"> 
-                <input class = 'book_rating' type="number" maxlength="1"  placeholder="Оценка"> 
+            <div class = "popup_book" id = "myForm">
+                <input id = "title" class = "book_title" type="text" minlength="1" maxlength="50" placeholder="Название книги"> 
+                <input id = "author" class = "book_author" type="text" minlength="1" maxlength="30" placeholder="Автор"> 
+                <input id = "category" class = "book_category" type="text" minlength="1" maxlength="20" placeholder="Категория"> 
+                <input id = "rating" class = "book_rating" type="number" min="1" max="10" placeholder="Оценка"> 
                 <div class="edit_list">
-                    <button type ='submit' class="btn btn-ok">Добавить в список</button>
+                    <button type ="submit" class="btn btn-ok">Добавить в список</button>
                     <button class="btn btn-cancel" onclick = "closeForm()"> Отменить</button>
                 </div>
             </div>
         </div>
 
-        <div id = 'books_list'>
-        </div>
+        <ul id = "books_list">
+        </ul>
 
         <div class="clear_list">
             <button class="btn btn-rem">Очистить весь список</button>
