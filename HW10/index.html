@@ -21,7 +21,7 @@
                 <input id = "title" class = "book_title" type="text" minlength="1" maxlength="50" placeholder="Название книги"> 
                 <input id = "author" class = "book_author" type="text" minlength="1" maxlength="30" placeholder="Автор"> 
                 <input id = "category" class = "book_category" type="text" minlength="1" maxlength="20" placeholder="Категория"> 
-                <input id = "rating" class = "book_rating" type="number" min="1" max="10" placeholder="Оценка"> 
+                <input id = "rating" class = "book_rating" type="number" min="1" max="5" placeholder="Оценка"> 
                 <div class="edit_list">
                     <button type ="submit" class="btn btn-ok">Добавить в список</button>
                     <button class="btn btn-cancel" onclick = "closeForm()"> Отменить</button>
@@ -34,6 +34,12 @@
 
         <div class="clear_list">
             <button class="btn btn-rem">Очистить весь список</button>
+        </div>
+
+        <div class="filter">           
+            <input class="filter" type="text" placeholder="Категория">
+            <button class="btn btn-filterCategory">книги по категории</button>
+            <button class="btn btn-filterTop">Топ-лист</button>
         </div>
     </div>
     <script src="script.js"></script>

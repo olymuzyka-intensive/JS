@@ -1,4 +1,9 @@
 let myBibl = document.querySelector('#books_list');
+let filterTop = document.querySelector('.btn-filterTop');
+let filterCategory = document.querySelector('.btn-filterCategory');
+let inputFiltre = document.querySelector('input');
+let clearALL = document.querySelector('.btn-rem');
+
 
 function openForm() {
     document.getElementById("myForm").style.display = "flex";
@@ -8,8 +13,6 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
-
-let clearALL = document.querySelector('.btn-rem');
 let clearList = function(){
     myBibl.innerHTML = '';
 }
@@ -30,25 +33,22 @@ let add = document.querySelector('.btn-ok');
         if (e.keyCode === 13 && this.value.length > 0) {
             addNewLi();
         }
-    }) 
+    }); 
     addLi2.addEventListener('keyup', function(e){
         if (e.keyCode === 13 && this.value.length > 0) {
             addNewLi();
         }
-    })     
+    });     
     addLi3.addEventListener('keyup', function(e){
         if (e.keyCode === 13 && this.value.length > 0) {
             addNewLi();
         }
-    })     
+    });     
     addLi4.addEventListener('keyup', function(e){
         if (e.keyCode === 13 && this.value.length > 0) {
             addNewLi();
         }
-    })  
-
-
-
+    });  
 
 function addNewLi () {
     let myBook = document.createElement('li');
@@ -90,29 +90,6 @@ function addNewLi () {
     let clear4 = document.querySelector('.book_rating'); 
     clear4.value = ''; //очищение поля после ввода
 
-    let editLi = document.createElement('button');
-    editLi.className = 'btn-edit';
-    editLi.innerHTML = '&#10000';
-    myBook.append(editLi);
-
-    function editElem (elem){
-        let newValue = [];
-    
-        for (let i=1; i <= 4; i++) {
-            let result = prompt('новое значение');
-             newValue.push(result);
-        }
-        let titElem = elem.querySelector('.title');
-        titElem.innerHTML = newValue[0];
-        let authorElem = elem.querySelector('.author');
-        authorElem.innerHTML = newValue[1];
-        let categoryElem = elem.querySelector('.category');
-        categoryElem.innerHTML = newValue[2];
-        let spanElem = elem.querySelector('span');
-        spanElem.innerHTML = newValue[3];
-    
-    }
-
     let delLi = document.createElement('button');
     delLi.className = 'btn-del';
     delLi.innerHTML = '&#9988;';
@@ -126,12 +103,33 @@ function addNewLi () {
         elem.remove()
     }
 
+    let editLi = document.createElement('button');
+    editLi.className = 'btn-edit';
+    editLi.innerHTML = '&#10000';
+    myBook.append(editLi);
+
+    function editElem (elem){
+        let newValue = [];
+    
+        for (let i=1; i <= 4; i++) {
+            let result = prompt('новое значение');
+            newValue.push(result);
+        }
+        let titElem = elem.querySelector('.title');
+        titElem.innerHTML = newValue[0];
+        let authorElem = elem.querySelector('.author');
+        authorElem.innerHTML = newValue[1];
+        let categoryElem = elem.querySelector('.category');
+        categoryElem.innerHTML = newValue[2];
+        let spanElem = elem.querySelector('span');
+        spanElem.innerHTML = newValue[3];
+    
+    }
+
     editLi.addEventListener('click', function(){
         editElem(myBook);
 
-    }) 
-
-    
+    })    
 }      
 
 const Book = function(title = '', category = '', author = '', rating = ''){

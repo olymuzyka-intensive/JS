@@ -42,8 +42,17 @@ input {
     padding: 5px;
     font-size: 16px;
 }
-
-.add_list, .clear_list {  
+.filter input {
+    background: #dfd4c4;
+    border: none;
+    border-radius: 5px;
+    margin-top: 12px;
+    font-size: 14px;
+    height: 35px;
+    width: 120px;
+    cursor: pointer;
+}
+.add_list, .clear_list, .filter {  
     display: flex;
     justify-content: center;
     gap: 20px;
