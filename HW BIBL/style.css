@@ -187,3 +187,15 @@ input {
         text-align: end;
     }
 }
+
+.top_list,
+.filter_list {
+    display: none;
+    background: #9a8870;
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px 5px;    
+    border-radius: 5px;
+    word-wrap: break-word; 
+    word-break: break-word; 
+}

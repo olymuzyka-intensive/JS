@@ -1,13 +1,15 @@
 let myBibl = document.querySelector('#books_list');
 let filterTop = document.querySelector('.btn-filterTop');
 let filterCategory = document.querySelector('.btn-filterCategory');
-let inputFiltre = document.querySelector('input');
+let inputFilter = document.querySelector('filter-category');
+let resultFilter = document.querySelector('.filter_list');
+let resultTop = document.querySelector('.top_list');
 let clearALL = document.querySelector('.btn-rem');
 
 
 function openForm() {
     document.getElementById("myForm").style.display = "flex";
-  }
+}
   
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
@@ -25,6 +27,7 @@ let addLi4 = document.querySelector('.book_rating');
 
 
 let add = document.querySelector('.btn-ok');
+
     add.addEventListener('click', function(){
         if (addLi.value.length > 0) addNewLi();
     });
@@ -115,21 +118,45 @@ function addNewLi () {
             let result = prompt('новое значение');
             newValue.push(result);
         }
-        let titElem = elem.querySelector('.title');
-        titElem.innerHTML = newValue[0];
-        let authorElem = elem.querySelector('.author');
-        authorElem.innerHTML = newValue[1];
-        let categoryElem = elem.querySelector('.category');
-        categoryElem.innerHTML = newValue[2];
-        let spanElem = elem.querySelector('span');
-        spanElem.innerHTML = newValue[3];
+        // let titElem = elem.querySelector('.title');
+        // titElem.innerHTML = newValue[0];
+        // let authorElem = elem.querySelector('.author');
+        // authorElem.innerHTML = newValue[1];
+        // let categoryElem = elem.querySelector('.category');
+        // categoryElem.innerHTML = newValue[2];
+        // let spanElem = elem.querySelector('span');
+        // spanElem.innerHTML = newValue[3];
     
     }
 
-    editLi.addEventListener('click', function(){
-        editElem(myBook);
+    // editLi.addEventListener('click', function(){
+    //     editElem(myBook);
 
-    })    
+    // })   
+    editLi.addEventListener('click', function(){
+        let titElem = elem.querySelector('.title');
+        editElem(titElem);
+
+    })   
+    editLi.addEventListener('click', function(){
+        let authorElem = elem.querySelector('.author');
+
+        editElem(authorElem);
+
+    })   
+    editLi.addEventListener('click', function(){
+        let categoryElem = elem.querySelector('.category');
+        editElem(categoryElem);
+
+    })   
+    editLi.addEventListener('click', function(){
+        let spanElem = elem.querySelector('span');
+        editElem(spanElem);
+
+    })   
+
+    
+
 }      
 
 const Book = function(title = '', category = '', author = '', rating = ''){
@@ -139,10 +166,11 @@ const Book = function(title = '', category = '', author = '', rating = ''){
     this.rating = rating;
 
 
-this.show = function(){
-    console.log(`${this.title} ${this.author} (${this.category}) ${this.rating}`);
-    }
+// this.show = function(){
+//     console.log(`${this.title} ${this.author} (${this.category}) ${this.rating}`);
+//     }
 }
+
 const MyBooks = function(){
     this.data = [];
 
@@ -157,7 +185,36 @@ const MyBooks = function(){
         });
 
     }
-};
 
-                                                   
+    this.categoryFilter = function(){
+        let resultFilter = this.data.filter(function(item){
+            return item.category == inputFilter.value;
+        })
+        resultFilter.forEach(function(item){
+            item.show();
+        })
+        
+    }
+
     
+}
+// let filterTop = document.querySelector('.btn-filterTop');
+// let filterCategory = document.querySelector('.btn-filterCategory');
+// let inputFiltre = document.querySelector('filter-category');
+filterCategory.addEventListener('click', function(){
+    document.querySelector('.filter_list').style.display = "flex";
+})
+
+
+
+filterTop = function(){
+    filterTop.addEventListener('click', function(){
+        let filterBook = Book.filter((item) => {
+            if (Book.rating >= 4) return item;
+    });
+});
+
+};     
+
+filterTop.append(resultTop);
+document.querySelector('.top_list').style.display = "flex";

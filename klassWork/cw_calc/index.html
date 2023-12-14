@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- https://cdpn.io/malachite/fullpage/rzdWax?view= -->
+
+    <div class="calc">
+        <form>
+            <input id="digit1" type="number" name="calc_number_a" placeholder="Number A">
+
+            <select id="calc_operation">
+                <option value="ad">+</option>
+                <option value="minus">-</option>
+                <option value="divide">/</option>
+                <option value="multiply">*</option>
+            </select>
+
+            <input id="digit2" type="number" name="calc_number_b" placeholder="Number B">
+            
+            <button  onclick="func()" class="btn_calc" type="button">Calculate</button>
+        </form>
+
+        <div id="result" class="calc__answer"></div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>
