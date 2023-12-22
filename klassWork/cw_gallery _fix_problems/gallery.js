@@ -1,6 +1,8 @@
 const gallery = function(id) {
     let imgList = document.querySelectorAll('.gallery__thumbs li a');
     let previewImg = document.querySelector('.gallery__preview');
+    let imgShow = document.createElement('img');
+
     let closeBtn = previewImg.querySelector('.gallery__preview_close');
     
     imgList.forEach(item => {       
@@ -8,7 +10,6 @@ const gallery = function(id) {
             e.preventDefault();
 
             let href = item.href;
-            let imgShow = document.createElement('img');
             imgShow.src = href;
 
             previewImg.append(imgShow);
@@ -27,12 +28,3 @@ const gallery = function(id) {
 window.addEventListener('load', function(){
     gallery('gallery'); // id
 })
-
-
-
-// if (imgShow.style.display === 'none') {
-//     imgShow.style.display = 'flex';
-// } else if (imgShow.style.display !== 'none') {
-//     imgShow.style.display = 'none';
-//     closeBtn.style.display = 'none';
-// }
