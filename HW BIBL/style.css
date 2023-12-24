@@ -199,3 +199,29 @@ input {
     word-wrap: break-word; 
     word-break: break-word; 
 }
+
+.book_modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 5px;
+    background: #dfd4c4;
+    z-index: 100;
+    width: 85%;
+    border-radius: 5px;
+    border: 2px solid #2f2b27;
+    padding: 5%;
+}
+
+.book_modal button {
+    width: 50px;
+    background: #534636;
+    color: #e7e3dd;
+    border-radius: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}

@@ -5,7 +5,7 @@ let inputFilter = document.querySelector('filter-category');
 let resultFilter = document.querySelector('.filter_list');
 let resultTop = document.querySelector('.top_list');
 let clearALL = document.querySelector('.btn-rem');
-let data = [];
+
 
 function openForm() {
     document.getElementById("myForm").style.display = "flex";
@@ -25,28 +25,31 @@ let addLi2 = document.querySelector('.book_author');
 let addLi3 = document.querySelector('.book_category');
 let addLi4 = document.querySelector('.book_rating');
 
+
 let add = document.querySelector('.btn-ok');
+
     add.addEventListener('click', function(){
-        if (addLi.value.length > 0 && addLi4.value <= 5)  {addNewLi()};
+        
+        if (addLi.value.length > 0) addNewLi();
     });
 
     addLi.addEventListener('keyup', function(e){
-        if (e.keyCode === 13 && this.value.length > 0 && addLi4.value <= 5) {
+        if (e.keyCode === 13 && this.value.length > 0) {
             addNewLi();
         }
     }); 
     addLi2.addEventListener('keyup', function(e){
-        if (e.keyCode === 13 && this.value.length > 0 && addLi4.value <= 5) {
+        if (e.keyCode === 13 && this.value.length > 0) {
             addNewLi();
         }
     });     
     addLi3.addEventListener('keyup', function(e){
-        if (e.keyCode === 13 && this.value.length > 0 && addLi4.value <= 5) {
+        if (e.keyCode === 13 && this.value.length > 0) {
             addNewLi();
         }
     });     
     addLi4.addEventListener('keyup', function(e){
-        if (e.keyCode === 13 && this.value <= 5) {
+        if (e.keyCode === 13 && this.value.length > 0) {
             addNewLi();
         }
     });  
@@ -109,47 +112,50 @@ function addNewLi () {
     editLi.innerHTML = '&#10000';
     myBook.append(editLi);
 
-    function editBook(elem){
-        const editBibl = document.createElement('div')
-        const editTitle = document.createElement('input');
-        const editAutor = document.createElement('input');
-        const editCategory = document.createElement('input');
-        const editRank = document.createElement('input');
-        const btnSaveElem = document.createElement('button');
-        const btnCloseElem = document.createElement('button');
-
-
-        editBibl.classList.add('book_modal');
-
-        editTitle.value = data.title;
-        editAutor.value = data.author;
-        editCategory.value = data.category;
-        editRank.value = data.rating;
-        btnSaveElem.innerHTML = 'Save';
-        btnCloseElem.innerHTML = 'X'
-
-        editBibl.append(editTitle, editAutor, editCategory, editRank, btnSaveElem, btnCloseElem);
-        myBibl.appendChild(editBibl);
-
-        btnSaveElem.addEventListener('click', function()  {
-            editTitle.value = `new value`;
-            editAutor.value = `new value`;
-            editCategory.value = `new value`;
-            editRank.value = `new value`;
-            // this.onSave(id, newData);
-            // editElem.remove();
-        });
-
-        btnCloseElem.addEventListener('click', function() {
-            editBibl.remove();
-        });
-
+    function editElem (elem){
+        let newValue = [];
+    
+        for (let i=1; i <= 4; i++) {
+            let result = prompt('новое значение');
+            newValue.push(result);
+        }
+        let titElem = elem.querySelector('.title');
+        titElem.innerHTML = newValue[0];
+        let authorElem = elem.querySelector('.author');
+        authorElem.innerHTML = newValue[1];
+        let categoryElem = elem.querySelector('.category');
+        categoryElem.innerHTML = newValue[2];
+        let spanElem = elem.querySelector('span');
+        spanElem.innerHTML = newValue[3];
+    
     }
 
-    editLi.addEventListener('click', function(){
-        editBook();
+    // editLi.addEventListener('click', function(){
+    //     editElem(myBook);
 
-    })   
+    // })   
+    // editLi.addEventListener('click', function(){
+    //     let titElem = elem.querySelector('.title');
+    //     editElem(titElem);
+
+    // })   
+    // editLi.addEventListener('click', function(){
+    //     let authorElem = elem.querySelector('.author');
+
+    //     editElem(authorElem);
+
+    // })   
+    // editLi.addEventListener('click', function(){
+    //     let categoryElem = elem.querySelector('.category');
+    //     editElem(categoryElem);
+
+    // })   
+    // editLi.addEventListener('click', function(){
+    //     let spanElem = elem.querySelector('span');
+    //     editElem(spanElem);
+
+    // })      
+
 }      
 
 const Book = function(title = '', category = '', author = '', rating = ''){
