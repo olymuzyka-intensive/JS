@@ -5,8 +5,8 @@ class Contacts {
     add = function(userData = {}){
         if (!userData || (userData.name && userData.phone && userData.name.length == 0 && userData.content.phone == 0 && data.phone.length > 11)) return;
 
-        const user = new Contacts(userData.name, userData.email, userData.address, userData.phone);
-
+        const user = new User(userData.name, userData.email, userData.address, userData.phone);
+ 
         if (!user) return;
 
         this.#lastId++;
@@ -25,7 +25,7 @@ class Contacts {
         if (!user) return;
         user.edit(userData);
     }
-
+  
     remove = function(id) {
         if (!id) return;
 
@@ -54,3 +54,22 @@ class Contacts {
         return dataTmp;
     }
 }
+
+const myContacts2 = new Contacts();
+
+myContacts2.add ({
+    name: 'dfgdfgd',
+    phone: 'bzbdfbhdefgfd',
+});
+myContacts2.add ({
+    name:'fdggsgsd',
+    phone: 'dfgdsgssgd',
+});
+myContacts2.add ({
+    name: 'fdssdxvx',
+    phone: 'dfbdbdfbbfd',
+});
+myContacts2.add ({
+    name: 'bdfbdc',
+    phone: 'bfdbadfc',
+});

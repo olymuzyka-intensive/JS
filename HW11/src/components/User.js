@@ -1,4 +1,5 @@
 class User {
+    #id;
     #name;
     #email;
     #address;
@@ -6,12 +7,12 @@ class User {
 
     constructor(name, email, address, phone) {
         this.#name = name;
-        this.#email = email || '';
+        this.#email = email || ''; //допустила, что пользователь не указывает эти данные
         this.#address = address || '';
         this.#phone = phone;
     }
 
-    edit = function(data){
+    edit = function(){
         if (!data || (data.name.length == 0 && data.phone.length == 0 && data.phone.length > 11)) return;
         this.#name = data.name;
         this.#email = data.email;
@@ -27,9 +28,6 @@ class User {
             phone: this.#phone
         }
     }
-
-
-
 }
 
 const user1 = new User('olga','olymuzyka@gmail.com','gomel','+375291619914')

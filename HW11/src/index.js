@@ -1,1 +1,1 @@
-// new ContactsApp();
+new ContactsApp();
