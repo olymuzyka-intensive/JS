@@ -1,6 +1,6 @@
 class ContactsApp extends Contacts {
 
-    // let data = this.get();
+    data = this.get();
     
     windowEdit = function(id, data = {}){
         const editContact = document.createElement('div');
@@ -90,7 +90,7 @@ class ContactsApp extends Contacts {
         })
     }
 
-    onSave = (id, newNoteData) => {
+    this.onSave = (id, newNoteData) => {
         if (!id) return;
 
         const user = data.find(function(item) {
@@ -103,7 +103,7 @@ class ContactsApp extends Contacts {
         this.update();
     };
 
-    onEdit = (id) => {
+    this.onEdit = (id) => {
         if (!id) return;
 
         const user = data.find(function(item) {
@@ -115,14 +115,14 @@ class ContactsApp extends Contacts {
         this.windowEdit(id, user.get());
     };
 
-    onRemove = (id) => {
+    this.onRemove = (id) => {
         if (!id) return;
 
         this.remove(id);
         this.update();
     };
 
-   onAdd = () => {
+   this.onAdd = () => {
         const nameElem = this.usersElem.querySelector('[name="notes-field-title"]');
         const emailElem = this.usersElem.querySelector('[name="notes-field-content"]');
         const addressElem = this.userElem.querySelector('');
@@ -143,8 +143,10 @@ class ContactsApp extends Contacts {
         this.add(dataFields);
         this.update();
 
-        fieldTitle.value = '';
-        fieldContent.value = '';
+        nameElem.value = '';
+        emailElem.value = '';
+        addressElem.value = '';
+        phoneElem.value = '';
 
 
         // let liElem = document.createElement('li');
@@ -154,7 +156,7 @@ class ContactsApp extends Contacts {
         // let phoneElem = document.createElement('p');
     };
 
-   init = function() {
+   this.init = function() {
         if (!data) return;
 
         this.userElem = document.querySelector('.users');
