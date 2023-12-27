@@ -1,19 +1,21 @@
 class User {
-    #id;
+    id;
     #name;
     #email;
     #address;
     #phone;
 
-    constructor(name, email, address, phone) {
-        this.#name = name;
-        this.#email = email || ''; //допустила, что пользователь не указывает эти данные
+    constructor(name, email, address, phone, id) {
+        this.id = id,
+        this.#name = name || '';
+        this.#email = email || ''; 
         this.#address = address || '';
-        this.#phone = phone;
+        this.#phone = phone || '';
     }
 
-    edit = function(){
+    edit = function(data){        
         if (!data || (data.name.length == 0 && data.phone.length == 0 && data.phone.length > 11)) return;
+
         this.#name = data.name;
         this.#email = data.email;
         this.#address = data.address;
@@ -22,6 +24,7 @@ class User {
 
     get = function() {
         return {
+            id: this.id,
             name: this.#name,
             email: this.#email,
             address: this.#address,

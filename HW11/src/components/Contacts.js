@@ -1,12 +1,18 @@
 class Contacts {
     #data = [];
     #lastId = 0;
+    #user;
+
+    constructor(User) {
+        this.#user = User;
+    }
 
     add = function(userData = {}){
-        if (!userData || (userData.name && userData.phone && userData.name.length == 0 && userData.content.phone == 0 && data.phone.length > 11)) return;
+        if (!userData || (userData.name && userData.phone && userData.name.length == 0 && userData.content.phone == 0)) return;
 
-        const user = new User(userData.name, userData.email, userData.address, userData.phone);
- 
+        // const user = new User(userData.name, userData.email, userData.address, userData.phone);
+        const user = new User(userData.name, userData.email, userData.address, userData.phone, userData.id);
+
         if (!user) return;
 
         this.#lastId++;
@@ -59,17 +65,17 @@ const myContacts2 = new Contacts();
 
 myContacts2.add ({
     name: 'dfgdfgd',
-    phone: 'bzbdfbhdefgfd',
+    phone: '66786789',
 });
 myContacts2.add ({
     name:'fdggsgsd',
-    phone: 'dfgdsgssgd',
+    phone: '89890987654',
 });
 myContacts2.add ({
     name: 'fdssdxvx',
-    phone: 'dfbdbdfbbfd',
+    phone: '687685645',
 });
 myContacts2.add ({
     name: 'bdfbdc',
-    phone: 'bfdbadfc',
+    phone: '875698090',
 });
