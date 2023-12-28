@@ -3,14 +3,13 @@ class Contacts {
     #lastId = 0;
     #user;
 
-    constructor(User) {
-        this.#user = User;
-    }
+    // constructor(User) {
+    //     this.#user = User;
+    // }
 
     add = function(userData = {}){
         if (!userData || (userData.name && userData.phone && userData.name.length == 0 && userData.content.phone == 0)) return;
 
-        // const user = new User(userData.name, userData.email, userData.address, userData.phone);
         const user = new User(userData.name, userData.email, userData.address, userData.phone, userData.id);
 
         if (!user) return;
