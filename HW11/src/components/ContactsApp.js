@@ -176,3 +176,22 @@ class ContactsApp extends Contacts {
     
     
 }
+
+
+function checkPhone(phone){
+        
+    let regExp1 = (/\+?(375)\s?|-?\(?(29|25|44|33|017)\)?\s?|-?(\d{3}\s?-?\d{2}\s?-?\d{2})/g); // учитывает только набор в формате ххх-хх-хх
+    return regExp1.test(phone);
+}
+
+
+function checkPhone2(phone){
+
+    let regExp2 = (/\+?(375)\s?\-?\(?(29|25|44|33|017)\)?\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]/g);  //первый эксперимент еще "лопатный", но работает чуть точнее с форматом, если пользователь ввел как хотел
+    return regExp2.test(phone);
+}
+
+function checkEmail(email) {
+    let regExp3 = (/^(\D)(\w[^@]{2,})+@(\w{2,11})\.([a-z]{2,11})$/gim);
+    return regExp3.test(email);
+}
