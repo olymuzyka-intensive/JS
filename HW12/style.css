@@ -7,7 +7,7 @@
 }
 
 body {    
-    background: url(/HW11/img/bg.jpg) #0D3968 no-repeat;
+    background: url(/HW12/img/bg.jpg) #0D3968 no-repeat;
     background-position: top center;
 }
 
@@ -77,8 +77,7 @@ ul {
 
 .users__list {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     background: #fff;
     margin: 10%;
     gap: 10px;
@@ -90,8 +89,9 @@ ul {
    padding: 10px;
    border: 1px solid #0D3968;
    border-radius: 5px;
-   width: 200px;
-}
+   gap: 30px;
+   display: flex;
+   align-items: center;}
 
 .contacts__item button {
     margin-top: 20px;
@@ -107,4 +107,9 @@ ul {
     background: #0D3968;
     color: #fff;
     border-radius: 5px;
+    cursor: pointer;    
+}
+
+.contact__edit {
+    margin-left: auto;
 }

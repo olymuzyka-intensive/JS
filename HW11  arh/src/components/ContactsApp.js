@@ -2,7 +2,7 @@ class ContactsApp extends Contacts {
     constructor(User) { //data
         super([arguments]);      
         
-        this.data = this.get()
+        this.data = this.get();
 
         this.windowEdit = function(id, data = {}){
             const editContact = document.createElement('div');
@@ -138,6 +138,21 @@ class ContactsApp extends Contacts {
             const addressElemValue = addressElem.value;
             const phonelElemValue = phoneElem.value;
 
+            function checkEmail(emailElemValue) {
+                let regExpEmail = (/^(\D)(\w[^@]{2,})+@(\w{2,11})\.([a-z]{2,11})$/gim);
+                return regExpEmail.test(emailElemValue);
+            }
+            
+            function checkPhone(phoneElemValue){                    
+                let regExpPhone = (/^\+?(375)\s?\-?\(?(29|25|44|33|017)\)?\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]$/g); 
+                return regExpPhone.test(phoneElemValue);
+            }        
+
+            if (!nameElemValue || !emailElemValue || !addressElemValue || !phonelElemValue) {
+                alert('заполните все поля верно');
+                return;
+            }; 
+
             const dataFields = {
                 name: nameElemValue,
                 email: emailElemValue,
@@ -176,6 +191,11 @@ class ContactsApp extends Contacts {
     
     
 }
+
+
+
+
+
 
 // функции взяты из дугой нашей домашки, пока не внедряла, дума в user иои в App внедрить
 // function checkPhone(phone){

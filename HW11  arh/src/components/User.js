@@ -7,14 +7,15 @@ class User {
 
     constructor(name, email, address, phone, id) {
         this.id = id,
-        this.#name = name || '';
-        this.#email = email || ''; 
-        this.#address = address || '';
-        this.#phone = phone || '';
+        this.#name = name;
+        this.#email = email; 
+        this.#address = address;
+        this.#phone = phone;
     }
 
     edit = function(data){        
-        if (!data || (data.name.length == 0 && data.phone.length == 0 && data.phone.length > 11)) return;
+        if (!data || (data.name.length == 0 && data.phone.length == 0)) return;
+        // if (!data || (data.name && data.name.length == 0)) return;
 
         this.#name = data.name;
         this.#email = data.email;
@@ -33,4 +34,4 @@ class User {
     }
 }
 
-const user1 = new User('olga','olymuzyka@gmail.com','gomel','+375291619914')
+// const user1 = new User('olga','olymuzyka@gmail.com','gomel','+375291619914')

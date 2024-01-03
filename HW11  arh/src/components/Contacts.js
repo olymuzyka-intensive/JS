@@ -60,21 +60,21 @@ class Contacts {
     }
 }
 
-const myContacts2 = new Contacts();
+// const myContacts2 = new Contacts();
 
-myContacts2.add ({
-    name: 'dfgdfgd',
-    phone: '66786789',
-});
-myContacts2.add ({
-    name:'fdggsgsd',
-    phone: '89890987654',
-});
-myContacts2.add ({
-    name: 'fdssdxvx',
-    phone: '687685645',
-});
-myContacts2.add ({
-    name: 'bdfbdc',
-    phone: '875698090',
-});
+// myContacts2.add ({
+//     name: 'dfgdfgd',
+//     phone: '66786789',
+// });
+// myContacts2.add ({
+//     name:'fdggsgsd',
+//     phone: '89890987654',
+// });
+// myContacts2.add ({
+//     name: 'fdssdxvx',
+//     phone: '687685645',
+// });
+// myContacts2.add ({
+//     name: 'bdfbdc',
+//     phone: '875698090',
+// });
