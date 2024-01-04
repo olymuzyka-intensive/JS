@@ -3,11 +3,38 @@ class Contacts {
     #lastId = 0;
     #user;
 
-    // constructor(User) {
-    //     this.#user = User;
-    // }
-
     add = function(userData = {}){
+        // const regExpEmail = (/^(\D)(\w[^@]{2,})+@(\w{2,11})\.([a-z]{2,11})$/gim);
+        // const regExpPhone = (/^\+?(375)\s?\-?\(?(29|25|44|33|017)\)?\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]$/g); 
+
+        // function checkEmailInput(){
+        //     if (checkEmail(emailElemValue)){
+        //         emailElem.style.borderColor = 'yellow';
+        //     } else {
+        //         emailElem.style.borderColor = 'red';
+        //     }
+        // }
+
+        // function checkPhoneInput(){
+        //     if (checkPhone(phonelElemValue)){
+        //         phoneElem.style.borderColor = 'yellow';
+        //     } else {
+        //         phoneElem.style.borderColor = 'red';
+        //     }
+        // }
+
+        // emailElem.addEventListener('input', checkEmailInput);
+        // phoneElem.addEventListener('input', checkPhoneInput);
+
+        // function checkEmail(emailElemValue) {
+        //     return regExpEmail.test(emailElemValue);
+        // }
+        
+        // function checkPhone(phoneElemValue){                    
+        //     return regExpPhone.test(phoneElemValue);
+        // }        
+
+
         if (!userData || (userData.name && userData.phone && userData.name.length == 0 && userData.content.phone == 0)) return;
 
         const user = new User(userData.name, userData.email, userData.address, userData.phone, userData.id);
@@ -18,6 +45,7 @@ class Contacts {
         user.id = this.#lastId;
 
         this.#data.push(user)
+        this.updateStorage();
     }
 
     edit = function(id, userData = {}) {
@@ -29,6 +57,7 @@ class Contacts {
 
         if (!user) return;
         user.edit(userData);
+        this.updateStorage();
     }
   
     remove = function(id) {
@@ -41,6 +70,7 @@ class Contacts {
         });
 
         this.#data = dataTmp;
+        this.updateStorage();
     }
 
     get = function(print = false) {
@@ -58,23 +88,30 @@ class Contacts {
 
         return dataTmp;
     }
+
+    getStorage = () => {
+        let storageData = localStorage.getItem('data'); 
+
+        if (!storageData) return false;
+
+        storageData = JSON.parse(storageData);
+
+        storageData.forEach((item) => {
+            this.add(item);
+        });
+
+        if (this.#data.length > 0) return this.#data;
+        
+        return false;
+    };
+
+    updateStorage = () => {
+        let storageData = this.get(1);
+        storageData = JSON.stringify(storageData);
+
+        if (typeof storageData == 'string') localStorage.setItem('data', storageData); 
+    };
+
+    // if (data.length == 0) this.#data = getStorage() || [];
+
 }
-
-// const myContacts2 = new Contacts();
-
-// myContacts2.add ({
-//     name: 'dfgdfgd',
-//     phone: '66786789',
-// });
-// myContacts2.add ({
-//     name:'fdggsgsd',
-//     phone: '89890987654',
-// });
-// myContacts2.add ({
-//     name: 'fdssdxvx',
-//     phone: '687685645',
-// });
-// myContacts2.add ({
-//     name: 'bdfbdc',
-//     phone: '875698090',
-// });

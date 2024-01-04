@@ -2,7 +2,7 @@ class ContactsApp extends Contacts {
     constructor(User) { //data
         super([arguments]);      
         
-        this.data = this.get();
+        this.data = [];
 
         this.windowEdit = function(id, data = {}){
             const editContact = document.createElement('div');
@@ -13,7 +13,7 @@ class ContactsApp extends Contacts {
             let btnSaveElem = document.createElement('button');
             let btnCloseElem = document.createElement('button');
         
-            editContact.classList.add('contacts__edit');
+            editContact.classList.add('users__edit');
         
             fieldNameElem.value = data.name;
             fieldEmailElem.value = data.email;
@@ -55,7 +55,7 @@ class ContactsApp extends Contacts {
 
             this.data.forEach((item) => {
                 let liElem = document.createElement('li');
-                let nameElem = document.createElement('h3');
+                let nameElem = document.createElement('p');
                 let emailElem = document.createElement('p');
                 let addressElem = document.createElement('p');
                 let phoneElem = document.createElement('p');
@@ -64,12 +64,12 @@ class ContactsApp extends Contacts {
                 let btnEdit = document.createElement('button');
                 let btnRemove = document.createElement('button');
 
-                liElem.classList.add('contacts__item');
-                nameElem.classList.add('contact__name');
-                emailElem.classList.add('contact__email');
-                addressElem.classList.add('contact__address');
-                phoneElem.classList.add('contact__phone');
-                divBtnElem.classList.add('contact__edit')
+                liElem.classList.add('users__item');
+                nameElem.classList.add('user__name');
+                emailElem.classList.add('user__email');
+                addressElem.classList.add('user__address');
+                phoneElem.classList.add('user__phone');
+                divBtnElem.classList.add('user__edit')
 
                 liElem.id = item.id;
                 nameElem.innerHTML = item.get().name;
@@ -128,6 +128,9 @@ class ContactsApp extends Contacts {
         };
 
         this.onAdd = () => {
+            // const regExpEmail = (/^(\D)(\w[^@]{2,})+@(\w{2,11})\.([a-z]{2,11})$/gim);
+            // const regExpPhone = (/^\+?(375)\s?\-?\(?(29|25|44|33|017)\)?\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]$/g); 
+
             const nameElem = this.usersElem.querySelector('[name="users-field-name"]');
             const emailElem = this.usersElem.querySelector('[name="users-field-email"]');
             const addressElem = this.usersElem.querySelector('[name="users-field-address"]');
@@ -138,20 +141,37 @@ class ContactsApp extends Contacts {
             const addressElemValue = addressElem.value;
             const phonelElemValue = phoneElem.value;
 
-            function checkEmail(emailElemValue) {
-                let regExpEmail = (/^(\D)(\w[^@]{2,})+@(\w{2,11})\.([a-z]{2,11})$/gim);
-                return regExpEmail.test(emailElemValue);
-            }
-            
-            function checkPhone(phoneElemValue){                    
-                let regExpPhone = (/^\+?(375)\s?\-?\(?(29|25|44|33|017)\)?\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]$/g); 
-                return regExpPhone.test(phoneElemValue);
-            }        
-
             if (!nameElemValue || !emailElemValue || !addressElemValue || !phonelElemValue) {
-                alert('заполните все поля верно');
+                alert('заполните все поля'); //временно
                 return;
             }; 
+
+            // function checkEmailInput(){
+            //     if (checkEmail(emailElemValue)){
+            //         emailElem.style.borderColor = 'yellow';
+            //     } else {
+            //         emailElem.style.borderColor = 'red';
+            //     }
+            // }
+
+            // function checkPhoneInput(){
+            //     if (checkPhone(phonelElemValue)){
+            //         phoneElem.style.borderColor = 'yellow';
+            //     } else {
+            //         phoneElem.style.borderColor = 'red';
+            //     }
+            // }
+
+            // emailElem.addEventListener('input', checkEmailInput);
+            // phoneElem.addEventListener('input', checkPhoneInput);
+
+            // function checkEmail(emailElemValue) {
+            //     return regExpEmail.test(emailElemValue);
+            // }
+            
+            // function checkPhone(phoneElemValue){                    
+            //     return regExpPhone.test(phoneElemValue);
+            // }        
 
             const dataFields = {
                 name: nameElemValue,
@@ -191,27 +211,3 @@ class ContactsApp extends Contacts {
     
     
 }
-
-
-
-
-
-
-// функции взяты из дугой нашей домашки, пока не внедряла, дума в user иои в App внедрить
-// function checkPhone(phone){
-        
-//     let regExp1 = (/\+?(375)\s?|-?\(?(29|25|44|33|017)\)?\s?|-?(\d{3}\s?-?\d{2}\s?-?\d{2})/g); // учитывает только набор в формате ххх-хх-хх
-//     return regExp1.test(phone);
-// }
-
-
-// function checkPhone2(phone){
-
-//     let regExp2 = (/\+?(375)\s?\-?\(?(29|25|44|33|017)\)?\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]/g);  //первый эксперимент еще "лопатный", но работает чуть точнее с форматом, если пользователь ввел как хотел
-//     return regExp2.test(phone);
-// }
-
-// function checkEmail(email) {
-//     let regExp3 = (/^(\D)(\w[^@]{2,})+@(\w{2,11})\.([a-z]{2,11})$/gim);
-//     return regExp3.test(email);
-// }
