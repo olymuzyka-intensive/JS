@@ -92,7 +92,8 @@ class ContactsApp extends Contacts {
                 btnRemove.addEventListener('click', () => {
                     this.onRemove(item.id);
                 });
-            })
+            });
+            this.updateStorage(); 
         }
 
         this.onSave = (id, newUserData) => {

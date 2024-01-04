@@ -89,6 +89,12 @@ class Contacts {
         return dataTmp;
     }
 
+    // updateData = (newData) => {
+    //     if (!newData) return;
+    //     data = newData;
+    //     this.updateStorage();
+    // }
+
     getStorage = () => {
         let storageData = localStorage.getItem('data'); 
 
@@ -100,8 +106,8 @@ class Contacts {
             this.add(item);
         });
 
-        if (this.#data.length > 0) return this.#data;
-        
+        if (data.length > 0) return data;
+
         return false;
     };
 
@@ -111,7 +117,4 @@ class Contacts {
 
         if (typeof storageData == 'string') localStorage.setItem('data', storageData); 
     };
-
-    // if (data.length == 0) this.#data = getStorage() || [];
-
 }
