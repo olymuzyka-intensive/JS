@@ -93,7 +93,6 @@ class ContactsApp extends Contacts {
                     this.onRemove(item.id);
                 });
             });
-            this.updateStorage(); 
         }
 
         this.onSave = (id, newUserData) => {
@@ -107,6 +106,8 @@ class ContactsApp extends Contacts {
 
             user.edit(newUserData);
             this.update();
+            this.updateStorage();                   //
+
         };
 
         this.onEdit = (id) => {
@@ -119,6 +120,7 @@ class ContactsApp extends Contacts {
             if (!user) return;
 
             this.windowEdit(id, user.get());
+            this.updateStorage();                   //
         };
 
         this.onRemove = (id) => {
@@ -126,6 +128,7 @@ class ContactsApp extends Contacts {
 
             this.remove(id);
             this.update();
+            this.updateStorage();                   //
         };
 
         this.onAdd = () => {
@@ -188,6 +191,8 @@ class ContactsApp extends Contacts {
             emailElem.value = '';
             addressElem.value = '';
             phoneElem.value = '';
+
+            this.updateStorage();                   //
         };
 
         this.init = function() {
@@ -206,9 +211,34 @@ class ContactsApp extends Contacts {
 
             this.update();
         };
+        this.init();
 
-        this.init()
-    }
+        this.getStorage = () => {
+            let storageData = localStorage.getItem('data'); 
     
+            if (!storageData) return false;
     
+            storageData = JSON.parse(storageData);
+    
+            storageData.forEach((item) => {
+                this.add(item);
+            });
+    
+            if (this.data.length > 0) return this.data; 
+    
+            return false;
+            // this.updateStorage();                   //
+        };
+    
+        this.updateStorage = () => {
+            let storageData = this.get(1);
+    
+            storageData = JSON.stringify(storageData);
+
+            if (typeof storageData == 'string') localStorage.setItem('data', storageData);    
+        };
+
+        if (!this.data || this.data.length == 0) this.data = this.getStorage() || [];
+    }   
+
 }

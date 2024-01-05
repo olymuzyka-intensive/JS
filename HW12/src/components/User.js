@@ -5,7 +5,7 @@ class User {
     #address;
     #phone;
 
-    constructor(id, name, email, address, phone) {
+    constructor(name, email, address, phone, id) {
         this.id = id,
         this.#name = name;
         this.#email = email; 
@@ -30,4 +30,5 @@ class User {
             phone: this.#phone
         }
     }
+
 }
