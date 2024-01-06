@@ -18,7 +18,6 @@ class ContactsApp extends Contacts {
             if (this.data.length > 0) return this.data; 
     
             return false;
-            // this.updateStorage();                   //
         };
     
         this.updateStorage = () => {
@@ -28,25 +27,8 @@ class ContactsApp extends Contacts {
 
             if (typeof storageData == 'string') localStorage.setItem('data', storageData);    
 
-            document.cookie = 'user=olga; max-age=864000'; //это проверка 10 day
+            document.cookie = 'name=olga; max-age=864000'; //это проверка 10 day
 
-            function setCookie(name, value, days) {
-                var cookie = name + "=" + encodeURIComponent(value);
-                
-                if(typeof days === "number") {
-                    cookie += "; max-age=" + (days*24*60*60*10);
-                    
-                    document.cookie = cookie;
-                }
-            }
-
-            // function getCookie(name) {
-            //     let matches = document.cookie.match(new RegExp(
-            //       "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-            //     ));
-            //     return matches ? decodeURIComponent(matches[1]) : undefined;
-            //   }          
-            //   const cookie = getCookie()
 
         };
 
@@ -180,9 +162,6 @@ class ContactsApp extends Contacts {
         };
 
         this.onAdd = () => {
-            // const regExpEmail = (/^(\D)(\w[^@]{2,})+@(\w{2,11})\.([a-z]{2,11})$/gim);
-            // const regExpPhone = (/^\+?(375)\s?\-?\(?(29|25|44|33|017)\)?\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]$/g); 
-
             const nameElem = this.usersElem.querySelector('[name="users-field-name"]');
             const emailElem = this.usersElem.querySelector('[name="users-field-email"]');
             const addressElem = this.usersElem.querySelector('[name="users-field-address"]');
@@ -193,37 +172,21 @@ class ContactsApp extends Contacts {
             const addressElemValue = addressElem.value;
             const phonelElemValue = phoneElem.value;
 
+            const testEmail = /\S+@\S+\.\S+/.test(emailElemValue);
+            const testPhone = /^\+?(375)\s?\-?\(?(29|25|44|33|017)\)?\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]$/g.test(phonelElemValue);
+
+            if (!testEmail ){
+                emailElem.style.borderColor = 'red';
+                return;
+            } 
+            if (!testPhone){
+                phoneElem.style.borderColor = 'red';
+                return;
+            } 
+
             if (!nameElemValue || !emailElemValue || !addressElemValue || !phonelElemValue) {
-                alert('заполните все поля'); //временно
                 return;
             }; 
-
-            // function checkEmailInput(){
-            //     if (checkEmail(emailElemValue)){
-            //         emailElem.style.borderColor = 'yellow';
-            //     } else {
-            //         emailElem.style.borderColor = 'red';
-            //     }
-            // }
-
-            // function checkPhoneInput(){
-            //     if (checkPhone(phonelElemValue)){
-            //         phoneElem.style.borderColor = 'yellow';
-            //     } else {
-            //         phoneElem.style.borderColor = 'red';
-            //     }
-            // }
-
-            // emailElem.addEventListener('input', checkEmailInput);
-            // phoneElem.addEventListener('input', checkPhoneInput);
-
-            // function checkEmail(emailElemValue) {
-            //     return regExpEmail.test(emailElemValue);
-            // }
-            
-            // function checkPhone(phoneElemValue){                    
-            //     return regExpPhone.test(phoneElemValue);
-            // }        
 
             const dataFields = {
                 name: nameElemValue,
