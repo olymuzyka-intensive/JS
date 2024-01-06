@@ -4,6 +4,54 @@ class ContactsApp extends Contacts {
         
         this.data = [];
 
+        this.getStorage = () => {
+            let storageData = localStorage.getItem('data'); 
+    
+            if (!storageData) return false;
+    
+            storageData = JSON.parse(storageData);
+    
+            storageData.forEach((item) => {
+                this.add(item);
+            });
+    
+            if (this.data.length > 0) return this.data; 
+    
+            return false;
+            // this.updateStorage();                   //
+        };
+    
+        this.updateStorage = () => {
+            let storageData = this.get(1);
+    
+            storageData = JSON.stringify(storageData);
+
+            if (typeof storageData == 'string') localStorage.setItem('data', storageData);    
+
+            document.cookie = 'user=olga; max-age=864000'; //это проверка 10 day
+
+            function setCookie(name, value, days) {
+                var cookie = name + "=" + encodeURIComponent(value);
+                
+                if(typeof days === "number") {
+                    cookie += "; max-age=" + (days*24*60*60*10);
+                    
+                    document.cookie = cookie;
+                }
+            }
+
+            // function getCookie(name) {
+            //     let matches = document.cookie.match(new RegExp(
+            //       "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            //     ));
+            //     return matches ? decodeURIComponent(matches[1]) : undefined;
+            //   }          
+            //   const cookie = getCookie()
+
+        };
+
+        if (!this.data || this.data.length == 0) this.data = this.getStorage() || [];
+
         this.windowEdit = function(id, data = {}){
             const editContact = document.createElement('div');
             const fieldNameElem = document.createElement('input');
@@ -212,33 +260,5 @@ class ContactsApp extends Contacts {
             this.update();
         };
         this.init();
-
-        this.getStorage = () => {
-            let storageData = localStorage.getItem('data'); 
-    
-            if (!storageData) return false;
-    
-            storageData = JSON.parse(storageData);
-    
-            storageData.forEach((item) => {
-                this.add(item);
-            });
-    
-            if (this.data.length > 0) return this.data; 
-    
-            return false;
-            // this.updateStorage();                   //
-        };
-    
-        this.updateStorage = () => {
-            let storageData = this.get(1);
-    
-            storageData = JSON.stringify(storageData);
-
-            if (typeof storageData == 'string') localStorage.setItem('data', storageData);    
-        };
-
-        if (!this.data || this.data.length == 0) this.data = this.getStorage() || [];
-    }   
-
+    }
 }
