@@ -1,3 +1,4 @@
+
 class ContactsApp extends Contacts {
     constructor(User) { //data
         super([arguments]);      
@@ -25,11 +26,9 @@ class ContactsApp extends Contacts {
     
             storageData = JSON.stringify(storageData);
 
-            if (typeof storageData == 'string') localStorage.setItem('data', storageData);    
+            if (typeof storageData == 'string') localStorage.setItem('data', storageData);   
 
-            document.cookie = 'name=olga; max-age=864000'; //это проверка 10 day
-
-
+            document.cookie = 'name=olga; max-age=864000'; //это проверка 10 day        единственное, что работает, но это просто проверка
         };
 
         if (!this.data || this.data.length == 0) this.data = this.getStorage() || [];
@@ -142,7 +141,7 @@ class ContactsApp extends Contacts {
 
         this.onEdit = (id) => {
             if (!id) return;
-
+            
             const user = this.data.find(function(item) {
                 return item.id == id;
             });
@@ -174,13 +173,12 @@ class ContactsApp extends Contacts {
 
             const testEmail = /\S+@\S+\.\S+/.test(emailElemValue);
             const testPhone = /^\+?(375)\s?\-?\(?(29|25|44|33|017)\)?\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]$/g.test(phonelElemValue);
+            // const testPhone = /(?:\+|\d)[\d\-\(\) ]{9,}\d/g.test(phonelElemValue);
 
             if (!testEmail ){
-                emailElem.style.borderColor = 'red';
                 return;
             } 
             if (!testPhone){
-                phoneElem.style.borderColor = 'red';
                 return;
             } 
 
@@ -202,6 +200,7 @@ class ContactsApp extends Contacts {
             emailElem.value = '';
             addressElem.value = '';
             phoneElem.value = '';
+
 
             this.updateStorage();                   //
         };
