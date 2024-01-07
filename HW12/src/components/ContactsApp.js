@@ -277,5 +277,7 @@ class ContactsApp extends Contacts {
             this.update();
         };
         this.init();
+        
+        this.clearStorageData();
     }
 }
