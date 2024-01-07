@@ -49,28 +49,43 @@ class ContactsApp extends Contacts {
 
         if (!this.data || this.data.length == 0) this.data = this.getStorage() || [];
 
-        this.setTime = (key, value, time = 86400000) => {
-            const currentDate = new Date();
-            const item = {
-                value: value,
-                expires: currentDate.getTime() + time
-            }
-            localStorage.setItem(key, JSON.stringify(item));
-        }        
+        this.clearStorageData = () => {
+            const timing = 10;
+            let currentDate = new Date().getTime();
+            const setTime = localStorage.getItem('setTime');
 
-        this.clearStorage = (key) => {
-            const currentStorage = localStorage.getItem(key);
-
-            if (!currentStorage) {
-                return null;
-            }
-            const item = JSON.parse(currentStorage);
-            const now = new Date();
-
-            if (now.getTime() > item.expires) {
-                localStorage.clear();
+            if (setTime == null) {
+                localStorage.setItem('setTime', currentDate);
+            } else {
+                if (currentDate - setTime > timing * 60 * 60 * 1000) {
+                    localStorage.clear();
+                    localStorage.setItem('setTime', currentDate);
+                }                
             }
         }
+
+        // this.setTime = (key, value, time = 86400000) => {
+        //     const currentDate = new Date();
+        //     const item = {
+        //         value: value,
+        //         expires: currentDate.getTime() + time
+        //     }
+        //     localStorage.setItem(key, JSON.stringify(item));
+        // }        
+
+        // this.clearStorage = () => {
+        //     const currentStorage = localStorage.getItem(key);
+
+        //     if (!currentStorage) {
+        //         return null;
+        //     }
+        //     const item = JSON.parse(currentStorage);
+        //     const now = new Date();
+
+        //     if (now.getTime() > item.expires) {
+        //         localStorage.clear();
+        //     }
+        // }
 
         this.windowEdit = function(id, data = {}){
             const editContact = document.createElement('div');
