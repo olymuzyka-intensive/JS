@@ -4,7 +4,19 @@ class ContactsApp extends Contacts {
         super([arguments]);      
         
         this.data = [];
+   
+        this.setCookie = (cname, cvalue, exdays) => {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
 
+        this.getCookie = () => {
+            let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }      
+        
         this.getStorage = () => {
             let storageData = localStorage.getItem('data'); 
     
@@ -27,8 +39,8 @@ class ContactsApp extends Contacts {
             storageData = JSON.stringify(storageData);
 
             if (typeof storageData == 'string') localStorage.setItem('data', storageData);   
-
-            document.cookie = 'name=olga; max-age=864000'; //это проверка 10 day        единственное, что работает, но это просто проверка
+            // document.cookie = 'storage=update; max-age=864000'; //это проверка 10 day        
+            this.setCookie('storage','update','10');
         };
 
         if (!this.data || this.data.length == 0) this.data = this.getStorage() || [];
