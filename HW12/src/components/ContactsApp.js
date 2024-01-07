@@ -10,11 +10,15 @@ class ContactsApp extends Contacts {
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
             let expires = "expires="+d.toUTCString();
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+
+            console.log('timing update');
+            console.log(expires);
+
         }
 
         this.getCookie = () => {
             let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
-            return matches ? decodeURIComponent(matches[1]) : undefined;
+            return matches ? decodeURIComponent(matches[1]) : undefined;            
         }      
         
         this.getStorage = () => {
@@ -44,6 +48,29 @@ class ContactsApp extends Contacts {
         };
 
         if (!this.data || this.data.length == 0) this.data = this.getStorage() || [];
+
+        this.setTime = (key, value, time = 86400000) => {
+            const currentDate = new Date();
+            const item = {
+                value: value,
+                expires: currentDate.getTime() + time
+            }
+            localStorage.setItem(key, JSON.stringify(item));
+        }        
+
+        this.clearStorage = (key) => {
+            const currentStorage = localStorage.getItem(key);
+
+            if (!currentStorage) {
+                return null;
+            }
+            const item = JSON.parse(currentStorage);
+            const now = new Date();
+
+            if (now.getTime() > item.expires) {
+                localStorage.clear();
+            }
+        }
 
         this.windowEdit = function(id, data = {}){
             const editContact = document.createElement('div');
@@ -82,6 +109,7 @@ class ContactsApp extends Contacts {
             btnCloseElem.addEventListener('click', function() {
                 editContact.remove();
             });
+            // this.updateStorage ();
         };      
 
         this.create = function(){
@@ -161,7 +189,7 @@ class ContactsApp extends Contacts {
             if (!user) return;
 
             this.windowEdit(id, user.get());
-            this.updateStorage();                   //
+            // this.updateStorage();                   //
         };
 
         this.onRemove = (id) => {
