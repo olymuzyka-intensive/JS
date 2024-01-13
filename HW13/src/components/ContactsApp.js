@@ -228,7 +228,21 @@ class ContactsApp extends Contacts {
 
             const testEmail = /\S+@\S+\.\S+/.test(emailElemValue);
             const testPhone = /^\+?(375)\s?\-?\(?(29|25|44|33|017)\)?\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]$/g.test(phonelElemValue);
-            // const testPhone = /(?:\+|\d)[\d\-\(\) ]{9,}\d/g.test(phonelElemValue);
+            // function checkEmailInput(){
+            //     if (checkEmail(emailElemValue)){
+            //         emailElem.style.borderColor = 'none';
+            //     } else {
+            //         emailElem.style.borderColor = 'red';
+            //     }
+            // }
+
+            // function checkPhoneInput(){
+            //     if (checkPhone(phonelElemValue)){
+            //         phoneElem.style.borderColor = 'none';
+            //     } else {
+            //         phoneElem.style.borderColor = 'red';
+            //     }
+            // }
 
             if (!testEmail ){
                 return;
