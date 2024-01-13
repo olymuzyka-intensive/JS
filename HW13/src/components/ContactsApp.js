@@ -64,29 +64,6 @@ class ContactsApp extends Contacts {
             }
         }
 
-        // this.setTime = (key, value, time = 86400000) => {
-        //     const currentDate = new Date();
-        //     const item = {
-        //         value: value,
-        //         expires: currentDate.getTime() + time
-        //     }
-        //     localStorage.setItem(key, JSON.stringify(item));
-        // }        
-
-        // this.clearStorage = () => {
-        //     const currentStorage = localStorage.getItem(key);
-
-        //     if (!currentStorage) {
-        //         return null;
-        //     }
-        //     const item = JSON.parse(currentStorage);
-        //     const now = new Date();
-
-        //     if (now.getTime() > item.expires) {
-        //         localStorage.clear();
-        //     }
-        // }
-
         this.windowEdit = function(id, data = {}){
             const editContact = document.createElement('div');
             const fieldNameElem = document.createElement('input');
@@ -227,29 +204,16 @@ class ContactsApp extends Contacts {
             const phonelElemValue = phoneElem.value;
 
             const testEmail = /\S+@\S+\.\S+/.test(emailElemValue);
-            const testPhone = /^\+?(375)\s?\-?\(?(29|25|44|33|017)\)?\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]$/g.test(phonelElemValue);
-            // function checkEmailInput(){
-            //     if (checkEmail(emailElemValue)){
-            //         emailElem.style.borderColor = 'none';
-            //     } else {
-            //         emailElem.style.borderColor = 'red';
-            //     }
-            // }
-
-            // function checkPhoneInput(){
-            //     if (checkPhone(phonelElemValue)){
-            //         phoneElem.style.borderColor = 'none';
-            //     } else {
-            //         phoneElem.style.borderColor = 'red';
-            //     }
-            // }
-
+            const testPhone = /^\+?(375)\s?\-?\(?(29|25|44|33|17)\)?\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]\s?-?[0-9]$/g.test(phonelElemValue);
+            
             if (!testEmail ){
+                emailElem.style.borderColor = 'red';
                 return;
-            } 
+            } else emailElem.style.borderColor = 'green';
             if (!testPhone){
+                phoneElem.style.borderColor = 'red';
                 return;
-            } 
+            } else phoneElem.style.borderColor = 'green';
 
             if (!nameElemValue || !emailElemValue || !addressElemValue || !phonelElemValue) {
                 return;
