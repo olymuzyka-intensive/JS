@@ -11,7 +11,7 @@ class ContactsApp extends Contacts {
             let expires = "expires="+d.toUTCString();
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 
-            console.log('timing update');
+            // console.log('timing update');
             console.log(expires);
 
         }
@@ -46,6 +46,27 @@ class ContactsApp extends Contacts {
             // document.cookie = 'storage=update; max-age=864000'; //это проверка 10 day        
             this.setCookie('storage','update','10');
         };
+
+        this.getData = async () => {
+            if (this.data && this.data.length > 0) return;
+
+            let serverData = await fetch('https://jsonplaceholder.typicode.com/users')
+            .then((responce) => responce.json());
+
+            let dataTmp = serverData.map((item) => {
+                return {
+                    name: item.name,
+                    email: item.email,
+                    address: item.address,
+                    phone: item.phone
+                };
+            });
+
+            dataTmp.forEach((item) => {
+                this.add(item);
+            });
+            return true;
+        }
 
         if (!this.data || this.data.length == 0) this.data = this.getStorage() || [];
 
@@ -253,6 +274,11 @@ class ContactsApp extends Contacts {
             btnAdd.addEventListener('click', this.onAdd);
 
             this.update();
+
+            this.getData()
+            .then(status => {
+                if (status) this.update();
+            });
         };
         this.init();
         
